@@ -1,18 +1,274 @@
-<HTML>
-<HEAD>
-   <META NAME="description" CONTENT="COCO/BBOB figures by function">
-   <META NAME="keywords" CONTENT="COCO, BBOB">
-   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
-   <TITLE> COCO Post-Processing Results </TITLE>
-   <SCRIPT SRC="sorttable.js"></SCRIPT>
-</HEAD>
-<BODY>
-<H1> COCO Post-Processing Results
-</H1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Data-driven characterization and benchmarking of multiobjective optimization algorithms using COCO/BBOB suite. Comparing RMMED, MOCMA, and DRLOS on the bi-objective test suite.">
+  <meta name="keywords" content="multiobjective optimization, COCO, BBOB, RMMED, MOCMA, DRLOS, PlatEMO, benchmarking">
+  <meta property="og:title" content="PlatEMO — MOO Algorithm Benchmarking">
+  <meta property="og:description" content="Data-driven characterization of multiobjective optimization algorithms.">
+  <title>PlatEMO — Multiobjective Optimization Benchmarking</title>
+  <link rel="stylesheet" href="assets/css/apple.css">
+</head>
+<body>
 
-<H2>Comparison data</H2>
-&nbsp;&nbsp;<a href="biobj_best2_RMMED_MOCMA_DRLOS_041602h3003/index.html">biobj_best2_RMMED_MOCMA_DRLOS_041602h3003</a><br>
-<H2>Single algorithm data</H2>
+  <!-- Navigation -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">PlatEMO Benchmark</a>
+      <ul class="nav-links">
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#algorithms">Algorithms</a></li>
+        <li><a href="#results">Results</a></li>
+        <li><a href="#explorer">Explorer</a></li>
+        <li><a href="biobj_best2_RMMED_MOCMA_DRLOS_041602h3003/index.html">Full Report</a></li>
+      </ul>
+    </div>
+  </nav>
 
-</BODY>
-</HTML>
+  <!-- Hero -->
+  <header class="hero" role="banner">
+    <p class="hero-eyebrow">COCO / BBOB Bi-Objective Suite</p>
+    <h1 class="hero-title">A Data-Driven Characterization<br>of Multiobjective Optimization Algorithms<br> from the platEMO Library</h1>
+    <div class="hero-actions">
+      <a href="biobj_best2_RMMED_MOCMA_DRLOS_041602h3003/pprldflex.html" class="btn btn-primary">
+        Explore Runtime Profiles
+      </a>
+      <a href="#results" class="btn btn-secondary">
+        See Results ↓
+      </a>
+    </div>
+  </header>
+
+  <!-- Stats -->
+  <section class="section" id="overview" aria-label="Key statistics">
+    <div class="section-inner">
+      <div class="stats">
+        <div>
+          <div class="stat-number">129</div>
+          <div class="stat-label">Algorithms Compared</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Algorithms -->
+  <section class="section" id="algorithms" aria-label="Compared algorithms">
+    <div class="section-inner">
+      <h2 class="section-title">Three algorithms.<br>One rigorous test.</h2>
+      <p class="section-subtitle">
+        Each algorithm is evaluated on the bi-objective BBOB suite under identical experimental conditions using the COCO framework.
+      </p>
+
+      <div class="algo-badges">
+        <span class="algo-badge badge-best2">best2016 (Reference)</span>
+        <span class="algo-badge badge-rmmed">RMMEDA</span>
+        <span class="algo-badge badge-mocma">MOCMA</span>
+        <span class="algo-badge badge-drlos">DRLOSEMCMO</span>
+      </div>
+
+      <div class="card-grid card-grid-2">
+        <a href="biobj_best2_RMMED_MOCMA_DRLOS_041602h3003/index.html" class="card">
+          <div class="card-icon">📊</div>
+          <div class="card-title">RMMEDA</div>
+          <p class="card-desc">
+            A regularized multiobjective covariance matrix estimation descent strategy. Evaluated on scalability and convergence behaviour across dimensions.
+          </p>
+          <span class="card-link">View runtime profiles →</span>
+        </a>
+
+        <a href="biobj_best2_RMMED_MOCMA_DRLOS_041602h3003/index.html" class="card">
+          <div class="card-icon">🧮</div>
+          <div class="card-title">MOCMA</div>
+          <p class="card-desc">
+            The Multi-Objective Covariance Matrix Adaptation Evolution Strategy. A well-established baseline for bi-objective optimization benchmarking.
+          </p>
+          <span class="card-link">View runtime profiles →</span>
+        </a>
+
+        <a href="biobj_best2_RMMED_MOCMA_DRLOS_041602h3003/index.html" class="card">
+          <div class="card-icon">🔬</div>
+          <div class="card-title">DRLOSEMCMO</div>
+          <p class="card-desc">
+            A data-driven reference-line optimization strategy employing low-overhead surrogates for efficient multiobjective search.
+          </p>
+          <span class="card-link">View runtime profiles →</span>
+        </a>
+
+        <a href="biobj_best2_RMMED_MOCMA_DRLOS_041602h3003/index.html" class="card">
+          <div class="card-icon">🏆</div>
+          <div class="card-title">best2016 Reference</div>
+          <p class="card-desc">
+            The virtual best algorithm from the BBOB 2016 workshop submissions. Serves as a strong reference upper bound for bi-objective performance.
+          </p>
+          <span class="card-link">View runtime profiles →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Runtime Profiles -->
+  <section class="section" id="results" aria-label="Benchmark results">
+    <div class="section-inner">
+      <h2 class="section-title">Runtime profiles<br>across all dimensions.</h2>
+      <p class="section-subtitle">
+        Expected Running Time (ERT) normalized by dimension. Shown for all 129 noiseless bi-objective functions.
+      </p>
+
+      <div class="profile-gallery">
+        <div class="profile-card">
+          <img src="biobj_best2_RMMED_MOCMA_DRLOS_041602h3003/pprldmany_02D_noiselessall.svg"
+               alt="Runtime profile 2D" loading="lazy">
+          <div class="profile-card-label">2 Dimensions</div>
+        </div>
+        <div class="profile-card">
+          <img src="biobj_best2_RMMED_MOCMA_DRLOS_041602h3003/pprldmany_03D_noiselessall.svg"
+               alt="Runtime profile 3D" loading="lazy">
+          <div class="profile-card-label">3 Dimensions</div>
+        </div>
+        <div class="profile-card">
+          <img src="biobj_best2_RMMED_MOCMA_DRLOS_041602h3003/pprldmany_05D_noiselessall.svg"
+               alt="Runtime profile 5D" loading="lazy">
+          <div class="profile-card-label">5 Dimensions</div>
+        </div>
+        <div class="profile-card">
+          <img src="biobj_best2_RMMED_MOCMA_DRLOS_041602h3003/pprldmany_10D_noiselessall.svg"
+               alt="Runtime profile 10D" loading="lazy">
+          <div class="profile-card-label">10 Dimensions</div>
+        </div>
+        <div class="profile-card">
+          <img src="biobj_best2_RMMED_MOCMA_DRLOS_041602h3003/pprldmany_20D_noiselessall.svg"
+               alt="Runtime profile 20D" loading="lazy">
+          <div class="profile-card-label">20 Dimensions</div>
+        </div>
+        <div class="profile-card">
+          <img src="biobj_best2_RMMED_MOCMA_DRLOS_041602h3003/pprldmany_40D_noiselessall.svg"
+               alt="Runtime profile 40D" loading="lazy">
+          <div class="profile-card-label">40 Dimensions</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Feature Highlights -->
+  <section class="section" id="explorer" aria-label="Analysis tools">
+    <div class="section-inner">
+      <h2 class="section-title">Deep-dive into<br>every dimension.</h2>
+      <p class="section-subtitle">
+        Four interactive analysis views provide complementary perspectives on algorithm performance.
+      </p>
+
+      <div class="feature-row">
+        <div class="feature-content">
+          <p class="feature-eyebrow">Interactive Viewer</p>
+          <h3 class="feature-title">Runtime Profiles<br>with Navigation</h3>
+          <p class="feature-body">
+            Navigate all 481 functions using keyboard arrows or buttons. Switch between
+            overview, per-function, and single-plot modes. Adjustable column layout for
+            side-by-side comparison.
+          </p>
+          <br>
+          <a href="biobj_best2_RMMED_MOCMA_DRLOS_041602h3003/pprldflex.html" class="btn-secondary" style="text-decoration:none;color:var(--color-accent);font-weight:500;">
+            Open Interactive Viewer →
+          </a>
+        </div>
+        <div class="feature-visual">
+          <img src="biobj_best2_RMMED_MOCMA_DRLOS_041602h3003/pprldmany_02D_1-separable_1-separable.svg"
+               alt="Interactive profile example" loading="lazy"
+               style="object-fit:contain;padding:24px;">
+        </div>
+      </div>
+
+      <div class="feature-row reverse">
+        <div class="feature-content">
+          <p class="feature-eyebrow">Scaling Analysis</p>
+          <h3 class="feature-title">How Performance<br>Scales with Dimension</h3>
+          <p class="feature-body">
+            Visualize how each algorithm's expected runtime grows as dimensionality increases
+            from 2D to 40D across all function groups.
+          </p>
+          <br>
+          <a href="biobj_best2_RMMED_MOCMA_DRLOS_041602h3003/ppfigs.html" class="btn-secondary" style="text-decoration:none;color:var(--color-accent);font-weight:500;">
+            View Scaling Analysis →
+          </a>
+        </div>
+        <div class="feature-visual">
+          <img src="biobj_best2_RMMED_MOCMA_DRLOS_041602h3003/ppfigs_f001.svg"
+               alt="Scaling with dimension" loading="lazy"
+               style="object-fit:contain;padding:24px;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Quick Links -->
+  <section class="section" aria-label="Report sections">
+    <div class="section-inner">
+      <h2 class="section-title">All report sections.</h2>
+      <p class="section-subtitle">Direct access to every view in the benchmark report.</p>
+
+      <div class="card-grid">
+        <a href="biobj_best2_RMMED_MOCMA_DRLOS_041602h3003/pprldflex.html" class="card">
+          <div class="card-icon">▶</div>
+          <div class="card-title">Interactive Profiles</div>
+          <p class="card-desc">Navigate runtime profiles with keyboard shortcuts across all 481 functions.</p>
+          <span class="card-link">Open →</span>
+        </a>
+
+        <a href="biobj_best2_RMMED_MOCMA_DRLOS_041602h3003/pprldmany-single-functions/pprldmany.html#20" class="card">
+          <div class="card-icon">📈</div>
+          <div class="card-title">Per-Function Profiles</div>
+          <p class="card-desc">Detailed runtime distribution profiles broken down by individual function.</p>
+          <span class="card-link">Open →</span>
+        </a>
+
+        <a href="biobj_best2_RMMED_MOCMA_DRLOS_041602h3003/pprldmany.html#20" class="card">
+          <div class="card-icon">📉</div>
+          <div class="card-title">Summary &amp; Groups</div>
+          <p class="card-desc">Runtime summaries aggregated by function group categories.</p>
+          <span class="card-link">Open →</span>
+        </a>
+
+        <a href="biobj_best2_RMMED_MOCMA_DRLOS_041602h3003/ppfigs.html" class="card">
+          <div class="card-icon">📐</div>
+          <div class="card-title">Scaling with Dimension</div>
+          <p class="card-desc">How ERT grows with problem dimensionality for each algorithm.</p>
+          <span class="card-link">Open →</span>
+        </a>
+
+        <a href="biobj_best2_RMMED_MOCMA_DRLOS_041602h3003/pptables.html" class="card">
+          <div class="card-icon">📋</div>
+          <div class="card-title">Performance Tables</div>
+          <p class="card-desc">Tabulated ERT values for selected precision targets. Sortable.</p>
+          <span class="card-link">Open →</span>
+        </a>
+
+        <a href="biobj_best2_RMMED_MOCMA_DRLOS_041602h3003/index.html" class="card">
+          <div class="card-icon">🏠</div>
+          <div class="card-title">Full Report Index</div>
+          <p class="card-desc">Complete COCO post-processing report with all generated figures and data.</p>
+          <span class="card-link">Open →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <p>
+      PlatEMO — Data-Driven Characterization of Multiobjective Optimization Algorithms &nbsp;·&nbsp;
+      Benchmarked with <a href="https://github.com/numbbo/coco" target="_blank" rel="noopener">COCO</a>
+      &nbsp;·&nbsp; MIT License &copy; 2026 Martin Juříček
+    </p>
+  </footer>
+
+</body>
+</html>

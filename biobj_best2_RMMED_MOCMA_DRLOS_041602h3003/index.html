@@ -1,23 +1,177 @@
-<HTML>
-<HEAD>
-   <META NAME="description" CONTENT="COCO/BBOB figures by function">
-   <META NAME="keywords" CONTENT="COCO, BBOB">
-   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
-   <TITLE> index </TITLE>
-   <SCRIPT SRC="sorttable.js"></SCRIPT>
-</HEAD>
-<BODY>
-<H1> 
-</H1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="COCO post-processing results for bi-objective benchmark: RMMED vs MOCMA vs DRLOS.">
+  <title>Benchmark Results — RMMED · MOCMA · DRLOS</title>
+  <link rel="stylesheet" href="../assets/css/apple.css">
+  <style>
+    .dim-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    @media (max-width: 768px) {
+      .dim-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .dim-grid { grid-template-columns: 1fr; }
+    }
+    .breadcrumb {
+      font-size: 13px;
+      color: var(--color-text-secondary);
+      padding: calc(var(--nav-height) + 24px) 24px 0;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .breadcrumb a {
+      color: var(--color-accent);
+      text-decoration: none;
+    }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .page-hero {
+      padding: 24px 24px 64px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .page-hero h1 {
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .page-hero p {
+      font-size: 17px;
+      color: var(--color-text-secondary);
+      max-width: 560px;
+      line-height: 1.5;
+    }
+    .link-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 48px;
+    }
+    .link-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 18px;
+      border-radius: 980px;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      background: var(--color-surface);
+      color: var(--color-text-primary);
+      box-shadow: 0 1px 8px var(--color-shadow);
+      transition: all var(--transition);
+      border: 0.5px solid var(--color-border);
+    }
+    .link-chip:hover {
+      background: var(--color-accent);
+      color: white;
+      border-color: var(--color-accent);
+      transform: scale(1.02);
+    }
+  </style>
+</head>
+<body>
 
-<!--links-->
-<a href="../index.html">Home</a><br>
-<a href="./pprldflex.html">Runtime profiles (with arrow keys navigation)</a><br>
-<a href="pprldmany-single-functions/pprldmany.html#20">Runtime profiles per function</a><br>
-<a href="pprldmany.html#20">Runtime profiles summary and function groups</a><br>
-<a href="ppfigs.html">Scaling with dimension</a><br>
-<a href="pptables.html">Tables for selected targets</a><br>
-<H2>  Runtime profiles over all targets </H2>
-<a href="pprldmany_02D_noiselessall.svg"><IMG SRC="pprldmany_02D_noiselessall.svg" height="220em"></a><a href="pprldmany_03D_noiselessall.svg"><IMG SRC="pprldmany_03D_noiselessall.svg" height="220em"></a><a href="pprldmany_05D_noiselessall.svg"><IMG SRC="pprldmany_05D_noiselessall.svg" height="220em"></a> <br /><a href="pprldmany_10D_noiselessall.svg"><IMG SRC="pprldmany_10D_noiselessall.svg" height="220em"></a><a href="pprldmany_20D_noiselessall.svg"><IMG SRC="pprldmany_20D_noiselessall.svg" height="220em"></a><a href="pprldmany_40D_noiselessall.svg"><IMG SRC="pprldmany_40D_noiselessall.svg" height="220em"></a> <br />
-</BODY>
-</HTML>
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">PlatEMO Benchmark</a>
+      <ul class="nav-links">
+        <li><a href="../index.html#overview">Overview</a></li>
+        <li><a href="../index.html#algorithms">Algorithms</a></li>
+        <li><a href="../index.html#results">Results</a></li>
+        <li><a href="pprldflex.html">Interactive Viewer</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="breadcrumb">
+    <a href="../index.html">Home</a> &rsaquo; Comparison Results
+  </div>
+
+  <div class="page-hero">
+    <div class="algo-badges" style="margin-bottom:20px">
+      <span class="algo-badge badge-best2">best2016 (Reference)</span>
+      <span class="algo-badge badge-rmmed">RMMEDA</span>
+      <span class="algo-badge badge-mocma">MOCMA</span>
+      <span class="algo-badge badge-drlos">DRLOSEMCMO</span>
+    </div>
+    <h1>Bi-Objective Benchmark<br>Comparison Results</h1>
+    <p>
+      COCO post-processing output for the bi-objective BBOB suite.
+      All functions, all dimensions, full statistical analysis.
+    </p>
+  </div>
+
+  <section class="section" style="padding-top:0">
+    <div class="section-inner">
+
+      <div class="link-strip">
+        <a href="pprldflex.html" class="link-chip">▶&nbsp; Interactive Runtime Profiles</a>
+        <a href="pprldmany-single-functions/pprldmany.html#20" class="link-chip">📈&nbsp; Per-Function Profiles</a>
+        <a href="pprldmany.html#20" class="link-chip">📉&nbsp; Summary &amp; Groups</a>
+        <a href="ppfigs.html" class="link-chip">📐&nbsp; Scaling with Dimension</a>
+        <a href="pptables.html" class="link-chip">📋&nbsp; Performance Tables</a>
+      </div>
+
+      <h2 class="section-title" style="margin-bottom:12px">Runtime profiles<br>over all targets.</h2>
+      <p class="section-subtitle">Expected Running Time (ERT) for all 481 noiseless functions across six problem dimensions.</p>
+
+      <div class="dim-grid">
+        <div class="profile-card">
+          <a href="pprldmany_02D_noiselessall.svg" target="_blank">
+            <img src="pprldmany_02D_noiselessall.svg" alt="Runtime profile 2D — all functions" loading="lazy">
+          </a>
+          <div class="profile-card-label">2 Dimensions</div>
+        </div>
+        <div class="profile-card">
+          <a href="pprldmany_03D_noiselessall.svg" target="_blank">
+            <img src="pprldmany_03D_noiselessall.svg" alt="Runtime profile 3D — all functions" loading="lazy">
+          </a>
+          <div class="profile-card-label">3 Dimensions</div>
+        </div>
+        <div class="profile-card">
+          <a href="pprldmany_05D_noiselessall.svg" target="_blank">
+            <img src="pprldmany_05D_noiselessall.svg" alt="Runtime profile 5D — all functions" loading="lazy">
+          </a>
+          <div class="profile-card-label">5 Dimensions</div>
+        </div>
+        <div class="profile-card">
+          <a href="pprldmany_10D_noiselessall.svg" target="_blank">
+            <img src="pprldmany_10D_noiselessall.svg" alt="Runtime profile 10D — all functions" loading="lazy">
+          </a>
+          <div class="profile-card-label">10 Dimensions</div>
+        </div>
+        <div class="profile-card">
+          <a href="pprldmany_20D_noiselessall.svg" target="_blank">
+            <img src="pprldmany_20D_noiselessall.svg" alt="Runtime profile 20D — all functions" loading="lazy">
+          </a>
+          <div class="profile-card-label">20 Dimensions</div>
+        </div>
+        <div class="profile-card">
+          <a href="pprldmany_40D_noiselessall.svg" target="_blank">
+            <img src="pprldmany_40D_noiselessall.svg" alt="Runtime profile 40D — all functions" loading="lazy">
+          </a>
+          <div class="profile-card-label">40 Dimensions</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer" role="contentinfo">
+    <p>
+      PlatEMO — Data-Driven Characterization of Multiobjective Optimization Algorithms &nbsp;·&nbsp;
+      Benchmarked with <a href="https://github.com/numbbo/coco" target="_blank" rel="noopener">COCO</a>
+      &nbsp;·&nbsp; MIT License &copy; 2026 Martin Juříček
+    </p>
+  </footer>
+
+</body>
+</html>
