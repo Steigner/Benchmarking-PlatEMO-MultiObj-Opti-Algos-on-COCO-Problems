@@ -1,274 +1,578 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Data-driven characterization and benchmarking of multiobjective optimization algorithms using COCO/BBOB suite. Comparing RMMED, MOCMA, and DRLOS on the bi-objective test suite.">
-  <meta name="keywords" content="multiobjective optimization, COCO, BBOB, RMMED, MOCMA, DRLOS, PlatEMO, benchmarking">
-  <meta property="og:title" content="PlatEMO — MOO Algorithm Benchmarking">
-  <meta property="og:description" content="Data-driven characterization of multiobjective optimization algorithms.">
-  <title>PlatEMO — Multiobjective Optimization Benchmarking</title>
-  <link rel="stylesheet" href="assets/css/apple.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PlatEMO Data-Driven Characterization of Multiobjective Optimization Algorithms</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0d1117;
+      --surface:   #161b22;
+      --surface2:  #21262d;
+      --border:    #30363d;
+      --accent:    #58a6ff;
+      --accent2:   #3fb950;
+      --accent3:   #d29922;
+      --muted:     #8b949e;
+      --text:      #c9d1d9;
+      --text-head: #f0f6fc;
+      --tag-bg:    #1f3a5f;
+      --tag-fg:    #79c0ff;
+      --pill-bg:   #1a3a24;
+      --pill-fg:   #56d364;
+      --gold-bg:   #2d2006;
+      --gold-fg:   #f0c040;
+      --radius:    8px;
+      --radius-lg: 12px;
+      --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 32px 24px 28px;
+    }
+    .header-inner {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .repo-breadcrumb {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 10px;
+      font-family: var(--font-mono);
+    }
+    .repo-breadcrumb a { color: var(--accent); text-decoration: none; }
+    .repo-breadcrumb a:hover { text-decoration: underline; }
+    h1 {
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--text-head);
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 20px;
+      border: 1px solid transparent;
+    }
+    .badge-blue  { background: var(--tag-bg);  color: var(--tag-fg);  border-color: #1f4b8a; }
+    .badge-green { background: var(--pill-bg); color: var(--pill-fg); border-color: #1e4d2c; }
+    .badge-gold  { background: var(--gold-bg); color: var(--gold-fg); border-color: #5a3e00; }
+
+    /* ── Layout ── */
+    .main {
+      max-width: 960px;
+      margin: 32px auto;
+      padding: 0 24px;
+    }
+
+    /* ── Section card ── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      margin-bottom: 24px;
+      overflow: hidden;
+    }
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface2);
+    }
+    .card-header h2 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-head);
+    }
+    .card-icon {
+      font-size: 1.1rem;
+      line-height: 1;
+    }
+    .card-body { padding: 20px; }
+
+    /* ── Navigation links ── */
+    .nav-links { list-style: none; }
+    .nav-links li {
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-links li:last-child { border-bottom: none; }
+    .nav-links a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 11px 4px;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.92rem;
+      transition: color 0.15s;
+    }
+    .nav-links a:hover { color: var(--text-head); }
+    .nav-links .nav-desc {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-left: 12px;
+      flex-shrink: 0;
+    }
+    .arrow { color: var(--muted); font-size: 0.85rem; margin-left: 8px; }
+
+    /* ── Algorithm sections ── */
+    .algo-section { margin-bottom: 20px; }
+    .algo-section:last-child { margin-bottom: 0; }
+    .algo-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 10px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .algo-label .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .dot-gold  { background: var(--gold-fg); box-shadow: 0 0 6px var(--gold-fg); }
+    .dot-blue  { background: var(--accent); }
+    .dot-muted { background: var(--muted); }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+    .pill {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      padding: 3px 10px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: var(--surface2);
+      color: var(--text);
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .pill:hover { border-color: var(--accent); color: var(--accent); cursor: default; }
+    .pill-top {
+      background: var(--gold-bg);
+      color: var(--gold-fg);
+      border-color: #5a3e00;
+      font-weight: 700;
+    }
+    .pill-top:hover { border-color: var(--gold-fg); color: var(--gold-fg); }
+
+    /* ── COCO best2016 banner ── */
+    .coco-banner {
+      background: linear-gradient(135deg, #1a2636 0%, #1a2d1e 100%);
+      border: 1px solid #2a4a6a;
+      border-radius: var(--radius-lg);
+      padding: 18px 22px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .coco-banner-icon { font-size: 2rem; flex-shrink: 0; }
+    .coco-banner-text h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-head);
+      margin-bottom: 3px;
+    }
+    .coco-banner-text p { font-size: 0.83rem; color: var(--muted); }
+    .coco-banner-text a { color: var(--accent); text-decoration: none; }
+    .coco-banner-text a:hover { text-decoration: underline; }
+
+    /* ── Notebook section ── */
+    .notebook-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 14px;
+    }
+    .notebook-card {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+      transition: border-color 0.15s;
+    }
+    .notebook-card:hover { border-color: var(--accent); }
+    .notebook-card h3 {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-head);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .notebook-card p { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; }
+    .notebook-tag {
+      font-size: 11px;
+      font-family: var(--font-mono);
+      background: var(--tag-bg);
+      color: var(--tag-fg);
+      padding: 2px 8px;
+      border-radius: 20px;
+    }
+    .code-preview {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 12px 14px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text);
+      line-height: 1.7;
+      margin-top: 10px;
+      overflow-x: auto;
+    }
+    .code-preview .kw  { color: #ff7b72; }
+    .code-preview .fn  { color: #d2a8ff; }
+    .code-preview .num { color: #79c0ff; }
+    .code-preview .cm  { color: var(--muted); }
+    .code-preview .st  { color: #a5d6ff; }
+
+    /* ── Horizontal rule ── */
+    hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 8px 0 16px;
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 48px;
+      padding: 24px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    footer .footer-inner { max-width: 960px; margin: 0 auto; }
+    .license-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 10px;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Navigation -->
-  <nav class="nav" role="navigation" aria-label="Main navigation">
-    <div class="nav-inner">
-      <a href="#" class="nav-logo">PlatEMO Benchmark</a>
+<header>
+  <div class="header-inner">
+    <div class="repo-breadcrumb">
+      <a href="#">Steigner</a> / <strong style="color:var(--text-head)">PlatEMO-Data-Driven-Characterization</strong>
+    </div>
+    <h1>PlatEMO Data-Driven Characterization of<br>Multiobjective Optimization Algorithms</h1>
+    <div class="badge-row">
+      <span class="badge badge-gold">129 Algorithms</span>
+      <span class="badge badge-green">COCO / BBOB-biobj</span>
+      <span class="badge badge-blue">PlatEMO</span>
+    </div>
+  </div>
+</header>
+
+<main class="main">
+
+  <!-- Navigation / Rozcestník -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-icon">&#128193;</span>
+      <h2>Results &amp; Reports</h2>
+    </div>
+    <div class="card-body" style="padding: 0 20px;">
       <ul class="nav-links">
-        <li><a href="#overview">Overview</a></li>
-        <li><a href="#algorithms">Algorithms</a></li>
-        <li><a href="#results">Results</a></li>
-        <li><a href="#explorer">Explorer</a></li>
-        <li><a href="biobj_best2_RMMED_MOCMA_DRLOS_041602h3003/index.html">Full Report</a></li>
+        <li>
+          <a href="ppdata_best_129/index.html">
+            <span>&#128202; COCO Post-Processing &mdash; ppdata_best_129</span>
+            <span class="nav-desc">biobj-ext comparison &nbsp;<span class="arrow">&#8594;</span></span>
+          </a>
+        </li>
       </ul>
     </div>
-  </nav>
+  </div>
 
-  <!-- Hero -->
-  <header class="hero" role="banner">
-    <p class="hero-eyebrow">COCO / BBOB Bi-Objective Suite</p>
-    <h1 class="hero-title">A Data-Driven Characterization<br>of Multiobjective Optimization Algorithms<br> from the platEMO Library</h1>
-    <div class="hero-actions">
-      <a href="biobj_best2_RMMED_MOCMA_DRLOS_041602h3003/pprldflex.html" class="btn btn-primary">
-        Explore Runtime Profiles
-      </a>
-      <a href="#results" class="btn btn-secondary">
-        See Results ↓
-      </a>
+  <!-- COCO best2016 banner -->
+  <div class="coco-banner">
+    <div class="coco-banner-icon">&#127942;</div>
+    <div class="coco-banner-text">
+      <h3>COCO best2016 Reference</h3>
+      <p>
+        All comparisons include the <strong style="color:var(--text)">best2016</strong> virtual algorithm &mdash;
+        an ensemble of the best-known COCO/BBOB-biobj solvers from the 2016 BBOB workshop.
+        Used as a state-of-the-art reference baseline throughout the evaluation.
+        &nbsp;<a href="https://coco.readthedocs.io" target="_blank">coco.readthedocs.io &#8599;</a>
+      </p>
     </div>
-  </header>
-
-  <!-- Stats -->
-  <section class="section" id="overview" aria-label="Key statistics">
-    <div class="section-inner">
-      <div class="stats">
-        <div>
-          <div class="stat-number">129</div>
-          <div class="stat-label">Algorithms Compared</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
+  </div>
 
   <!-- Algorithms -->
-  <section class="section" id="algorithms" aria-label="Compared algorithms">
-    <div class="section-inner">
-      <h2 class="section-title">Three algorithms.<br>One rigorous test.</h2>
-      <p class="section-subtitle">
-        Each algorithm is evaluated on the bi-objective BBOB suite under identical experimental conditions using the COCO framework.
-      </p>
+  <div class="card">
+    <div class="card-header">
+      <span class="card-icon">&#9881;</span>
+      <h2>Algorithm Portfolio</h2>
+    </div>
+    <div class="card-body">
 
-      <div class="algo-badges">
-        <span class="algo-badge badge-best2">best2016 (Reference)</span>
-        <span class="algo-badge badge-rmmed">RMMEDA</span>
-        <span class="algo-badge badge-mocma">MOCMA</span>
-        <span class="algo-badge badge-drlos">DRLOSEMCMO</span>
+      <div class="algo-section">
+        <div class="algo-label">
+          <span class="dot dot-gold"></span>
+          Winners
+        </div>
+        <div class="pill-list">
+          <span class="pill pill-top">RMMEDA</span>
+          <span class="pill pill-top">MOCMA</span>
+          <span class="pill pill-top">DRLOSEMCMO</span>
+        </div>
       </div>
 
-      <div class="card-grid card-grid-2">
-        <a href="biobj_best2_RMMED_MOCMA_DRLOS_041602h3003/index.html" class="card">
-          <div class="card-icon">📊</div>
-          <div class="card-title">RMMEDA</div>
-          <p class="card-desc">
-            A regularized multiobjective covariance matrix estimation descent strategy. Evaluated on scalability and convergence behaviour across dimensions.
-          </p>
-          <span class="card-link">View runtime profiles →</span>
-        </a>
+      <div class="algo-section" style="margin-top:20px;">
+        <div class="algo-label">
+          <span class="dot dot-blue"></span>
+          Compatetive Algorithms
+        </div>
+        <div class="pill-list">
+          <span class="pill">AENSGAII</span>
+          <span class="pill">CCMO</span>
+          <span class="pill">CPSMOEA</span>
+          <span class="pill">EMyOC</span>
+          <span class="pill">KnEA</span>
+          <span class="pill">MOEADDCWV</span>
+          <span class="pill">MOPSOCD</span>
+          <span class="pill">NSGAII</span>
+          <span class="pill">SCDAS</span>
+          <span class="pill">tDEACPBI</span>
+          <span class="pill">AGEMOEA</span>
+          <span class="pill">CSEMT</span>
+          <span class="pill">FRCGM</span>
+          <span class="pill">LCSA</span>
+          <span class="pill">MOEADDE</span>
+          <span class="pill">MOSD</span>
+          <span class="pill">NSGAIII</span>
+          <span class="pill">Two_Arch2</span>
+          <span class="pill">AGEMOEAII</span>
+          <span class="pill">CLIA</span>
+          <span class="pill">CTSEA</span>
+          <span class="pill">GDE3</span>
+          <span class="pill">LERD</span>
+          <span class="pill">MOEADDRA</span>
+          <span class="pill">MSCMO</span>
+          <span class="pill">NSGAIISDR</span>
+          <span class="pill">SMSEMOA</span>
+          <span class="pill">VaEA</span>
+          <span class="pill">ANSGAIII</span>
+          <span class="pill">CMEGL</span>
+          <span class="pill">DAEA</span>
+          <span class="pill">GLMO</span>
+          <span class="pill">LMEA</span>
+          <span class="pill">MOEADDU</span>
+          <span class="pill">MSEA</span>
+          <span class="pill">NSGAIIconflict</span>
+          <span class="pill">SPEA2</span>
+          <span class="pill">WASFGA</span>
+          <span class="pill">ARMOEA</span>
+          <span class="pill">CMME</span>
+          <span class="pill">DEAGNG</span>
+          <span class="pill">GPSOM</span>
+          <span class="pill">LMOEADS</span>
+          <span class="pill">MOEADFRRMAB</span>
+          <span class="pill">MSOPSII</span>
+          <span class="pill">NSLS</span>
+          <span class="pill">SPEA2SDE</span>
+          <span class="pill">WVMOEAP</span>
+          <span class="pill">AdaW</span>
+          <span class="pill">CMMO</span>
+          <span class="pill">DMOEAeC</span>
+          <span class="pill">GWASFGA</span>
+          <span class="pill">LSMOF</span>
+          <span class="pill">MOEADMRDL</span>
+          <span class="pill">MaOEACSS</span>
+          <span class="pill">PESAII</span>
+          <span class="pill">SPEAR</span>
+          <span class="pill">dMOPSO</span>
+          <span class="pill">BCEIBEA</span>
+          <span class="pill">CMOEACD</span>
+          <span class="pill">DNNSGAII</span>
+          <span class="pill">GrEA</span>
+          <span class="pill">MCCMO</span>
+          <span class="pill">MOEADPaS</span>
+          <span class="pill">MaOEADDFC</span>
+          <span class="pill">PICEAg</span>
+          <span class="pill">SRA</span>
+          <span class="pill">eMOEA</span>
+          <span class="pill">BCEMOEAD</span>
+          <span class="pill">CMOEAD</span>
+          <span class="pill">DNSGAII</span>
+          <span class="pill">HEA</span>
+          <span class="pill">MMOPSO</span>
+          <span class="pill">MOEADSTM</span>
+          <span class="pill">MaOEAIGD</span>
+          <span class="pill">PPS</span>
+          <span class="pill">SVRNSGAII</span>
+          <span class="pill">gNSGAII</span>
+          <span class="pill">BiCo</span>
+          <span class="pill">CMOEAMS</span>
+          <span class="pill">DPCPRA</span>
+          <span class="pill">IBEA</span>
+          <span class="pill">MOBCA</span>
+          <span class="pill">MOEADURAW</span>
+          <span class="pill">MaOEAIT</span>
+          <span class="pill">PREA</span>
+          <span class="pill">TPCMaO</span>
+          <span class="pill">hpaEA</span>
+          <span class="pill">BiGE</span>
+          <span class="pill">CMOEAMSG</span>
+          <span class="pill">MOEAIGDNS</span>
+          <span class="pill">MyODEMR</span>
+          <span class="pill">PeEA</span>
+          <span class="pill">TSNSGAII</span>
+          <span class="pill">onebyoneEA</span>
+          <span class="pill">CMOEMT</span>
+          <span class="pill">EAGMOEAD</span>
+          <span class="pill">IDBEA</span>
+          <span class="pill">MOCell</span>
+          <span class="pill">MOEAPC</span>
+          <span class="pill">NMPSO</span>
+          <span class="pill">TSTI</span>
+          <span class="pill">rNSGAII</span>
+          <span class="pill">CAEAD</span>
+          <span class="pill">EFRRR</span>
+          <span class="pill">IMCMOEAD</span>
+          <span class="pill">MOEAD</span>
+          <span class="pill">MOMBIII</span>
+          <span class="pill">NRVMOEA</span>
+          <span class="pill">RPDNSGAII</span>
+          <span class="pill">TiGE2</span>
+          <span class="pill">tDEA</span>
+          <span class="pill">CAMOEA</span>
+          <span class="pill">CMaDPPs</span>
+          <span class="pill">EMCMO</span>
+          <span class="pill">KLNSGAII</span>
+          <span class="pill">MOEADAWA</span>
+          <span class="pill">MOPSO</span>
+          <span class="pill">NSBiDiCo</span>
+          <span class="pill">RPEA</span>
+          <span class="pill">ToP</span>
+          <span class="pill">C3M</span>
+          <span class="pill">CGLP</span>
+          <span class="pill">SMPSO</span>
+          <span class="pill">CMOPSO</span>
+          <span class="pill">ICMA</span>
+        </div>
+      </div>
 
-        <a href="biobj_best2_RMMED_MOCMA_DRLOS_041602h3003/index.html" class="card">
-          <div class="card-icon">🧮</div>
-          <div class="card-title">MOCMA</div>
-          <p class="card-desc">
-            The Multi-Objective Covariance Matrix Adaptation Evolution Strategy. A well-established baseline for bi-objective optimization benchmarking.
-          </p>
-          <span class="card-link">View runtime profiles →</span>
-        </a>
+    </div>
+  </div>
 
-        <a href="biobj_best2_RMMED_MOCMA_DRLOS_041602h3003/index.html" class="card">
-          <div class="card-icon">🔬</div>
-          <div class="card-title">DRLOSEMCMO</div>
-          <p class="card-desc">
-            A data-driven reference-line optimization strategy employing low-overhead surrogates for efficient multiobjective search.
-          </p>
-          <span class="card-link">View runtime profiles →</span>
-        </a>
+  <!-- Notebooks -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-icon">&#128214;</span>
+      <h2>Jupyter Notebooks</h2>
+    </div>
+    <div class="card-body">
+      <div class="notebook-grid">
 
-        <a href="biobj_best2_RMMED_MOCMA_DRLOS_041602h3003/index.html" class="card">
-          <div class="card-icon">🏆</div>
-          <div class="card-title">best2016 Reference</div>
-          <p class="card-desc">
-            The virtual best algorithm from the BBOB 2016 workshop submissions. Serves as a strong reference upper bound for bi-objective performance.
-          </p>
-          <span class="card-link">View runtime profiles →</span>
-        </a>
+        <div class="notebook-card">
+          <h3><span>&#128202;</span> Analysis Placeholder <span class="notebook-tag">.ipynb</span></h3>
+          <p>Placeholder notebook &mdash; basic utility functions for future analysis.</p>
+          <div class="code-preview">
+<span class="kw">def</span> <span class="fn">add</span>(a, b):
+    <span class="cm"># placeholder: returns sum of a and b</span>
+    <span class="kw">return</span> a + b
+
+result = <span class="fn">add</span>(<span class="num">3</span>, <span class="num">5</span>)
+<span class="fn">print</span>(<span class="st">f"3 + 5 = {result}"</span>)
+          </div>
+        </div>
+
+        <div class="notebook-card">
+          <h3><span>&#128200;</span> ERT Comparison <span class="notebook-tag">.ipynb</span></h3>
+          <p>Expected running time analysis across local and background targets.</p>
+          <div class="code-preview">
+<span class="cm"># TODO: load COCO data</span>
+<span class="cm"># TODO: plot ERT profiles</span>
+<span class="kw">pass</span>
+          </div>
+        </div>
+
+        <div class="notebook-card">
+          <h3><span>&#127919;</span> Hypervolume Plots <span class="notebook-tag">.ipynb</span></h3>
+          <p>Hypervolume indicator trajectories over function evaluations.</p>
+          <div class="code-preview">
+<span class="cm"># TODO: compute HV indicator</span>
+<span class="cm"># TODO: generate figures</span>
+<span class="kw">pass</span>
+          </div>
+        </div>
+
       </div>
     </div>
-  </section>
+  </div>
 
-  <div class="divider"></div>
+</main>
 
-  <!-- Runtime Profiles -->
-  <section class="section" id="results" aria-label="Benchmark results">
-    <div class="section-inner">
-      <h2 class="section-title">Runtime profiles<br>across all dimensions.</h2>
-      <p class="section-subtitle">
-        Expected Running Time (ERT) normalized by dimension. Shown for all 129 noiseless bi-objective functions.
-      </p>
-
-      <div class="profile-gallery">
-        <div class="profile-card">
-          <img src="biobj_best2_RMMED_MOCMA_DRLOS_041602h3003/pprldmany_02D_noiselessall.svg"
-               alt="Runtime profile 2D" loading="lazy">
-          <div class="profile-card-label">2 Dimensions</div>
-        </div>
-        <div class="profile-card">
-          <img src="biobj_best2_RMMED_MOCMA_DRLOS_041602h3003/pprldmany_03D_noiselessall.svg"
-               alt="Runtime profile 3D" loading="lazy">
-          <div class="profile-card-label">3 Dimensions</div>
-        </div>
-        <div class="profile-card">
-          <img src="biobj_best2_RMMED_MOCMA_DRLOS_041602h3003/pprldmany_05D_noiselessall.svg"
-               alt="Runtime profile 5D" loading="lazy">
-          <div class="profile-card-label">5 Dimensions</div>
-        </div>
-        <div class="profile-card">
-          <img src="biobj_best2_RMMED_MOCMA_DRLOS_041602h3003/pprldmany_10D_noiselessall.svg"
-               alt="Runtime profile 10D" loading="lazy">
-          <div class="profile-card-label">10 Dimensions</div>
-        </div>
-        <div class="profile-card">
-          <img src="biobj_best2_RMMED_MOCMA_DRLOS_041602h3003/pprldmany_20D_noiselessall.svg"
-               alt="Runtime profile 20D" loading="lazy">
-          <div class="profile-card-label">20 Dimensions</div>
-        </div>
-        <div class="profile-card">
-          <img src="biobj_best2_RMMED_MOCMA_DRLOS_041602h3003/pprldmany_40D_noiselessall.svg"
-               alt="Runtime profile 40D" loading="lazy">
-          <div class="profile-card-label">40 Dimensions</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- Feature Highlights -->
-  <section class="section" id="explorer" aria-label="Analysis tools">
-    <div class="section-inner">
-      <h2 class="section-title">Deep-dive into<br>every dimension.</h2>
-      <p class="section-subtitle">
-        Four interactive analysis views provide complementary perspectives on algorithm performance.
-      </p>
-
-      <div class="feature-row">
-        <div class="feature-content">
-          <p class="feature-eyebrow">Interactive Viewer</p>
-          <h3 class="feature-title">Runtime Profiles<br>with Navigation</h3>
-          <p class="feature-body">
-            Navigate all 481 functions using keyboard arrows or buttons. Switch between
-            overview, per-function, and single-plot modes. Adjustable column layout for
-            side-by-side comparison.
-          </p>
-          <br>
-          <a href="biobj_best2_RMMED_MOCMA_DRLOS_041602h3003/pprldflex.html" class="btn-secondary" style="text-decoration:none;color:var(--color-accent);font-weight:500;">
-            Open Interactive Viewer →
-          </a>
-        </div>
-        <div class="feature-visual">
-          <img src="biobj_best2_RMMED_MOCMA_DRLOS_041602h3003/pprldmany_02D_1-separable_1-separable.svg"
-               alt="Interactive profile example" loading="lazy"
-               style="object-fit:contain;padding:24px;">
-        </div>
-      </div>
-
-      <div class="feature-row reverse">
-        <div class="feature-content">
-          <p class="feature-eyebrow">Scaling Analysis</p>
-          <h3 class="feature-title">How Performance<br>Scales with Dimension</h3>
-          <p class="feature-body">
-            Visualize how each algorithm's expected runtime grows as dimensionality increases
-            from 2D to 40D across all function groups.
-          </p>
-          <br>
-          <a href="biobj_best2_RMMED_MOCMA_DRLOS_041602h3003/ppfigs.html" class="btn-secondary" style="text-decoration:none;color:var(--color-accent);font-weight:500;">
-            View Scaling Analysis →
-          </a>
-        </div>
-        <div class="feature-visual">
-          <img src="biobj_best2_RMMED_MOCMA_DRLOS_041602h3003/ppfigs_f001.svg"
-               alt="Scaling with dimension" loading="lazy"
-               style="object-fit:contain;padding:24px;">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- Quick Links -->
-  <section class="section" aria-label="Report sections">
-    <div class="section-inner">
-      <h2 class="section-title">All report sections.</h2>
-      <p class="section-subtitle">Direct access to every view in the benchmark report.</p>
-
-      <div class="card-grid">
-        <a href="biobj_best2_RMMED_MOCMA_DRLOS_041602h3003/pprldflex.html" class="card">
-          <div class="card-icon">▶</div>
-          <div class="card-title">Interactive Profiles</div>
-          <p class="card-desc">Navigate runtime profiles with keyboard shortcuts across all 481 functions.</p>
-          <span class="card-link">Open →</span>
-        </a>
-
-        <a href="biobj_best2_RMMED_MOCMA_DRLOS_041602h3003/pprldmany-single-functions/pprldmany.html#20" class="card">
-          <div class="card-icon">📈</div>
-          <div class="card-title">Per-Function Profiles</div>
-          <p class="card-desc">Detailed runtime distribution profiles broken down by individual function.</p>
-          <span class="card-link">Open →</span>
-        </a>
-
-        <a href="biobj_best2_RMMED_MOCMA_DRLOS_041602h3003/pprldmany.html#20" class="card">
-          <div class="card-icon">📉</div>
-          <div class="card-title">Summary &amp; Groups</div>
-          <p class="card-desc">Runtime summaries aggregated by function group categories.</p>
-          <span class="card-link">Open →</span>
-        </a>
-
-        <a href="biobj_best2_RMMED_MOCMA_DRLOS_041602h3003/ppfigs.html" class="card">
-          <div class="card-icon">📐</div>
-          <div class="card-title">Scaling with Dimension</div>
-          <p class="card-desc">How ERT grows with problem dimensionality for each algorithm.</p>
-          <span class="card-link">Open →</span>
-        </a>
-
-        <a href="biobj_best2_RMMED_MOCMA_DRLOS_041602h3003/pptables.html" class="card">
-          <div class="card-icon">📋</div>
-          <div class="card-title">Performance Tables</div>
-          <p class="card-desc">Tabulated ERT values for selected precision targets. Sortable.</p>
-          <span class="card-link">Open →</span>
-        </a>
-
-        <a href="biobj_best2_RMMED_MOCMA_DRLOS_041602h3003/index.html" class="card">
-          <div class="card-icon">🏠</div>
-          <div class="card-title">Full Report Index</div>
-          <p class="card-desc">Complete COCO post-processing report with all generated figures and data.</p>
-          <span class="card-link">Open →</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer" role="contentinfo">
+<footer>
+  <div class="footer-inner">
     <p>
-      PlatEMO — Data-Driven Characterization of Multiobjective Optimization Algorithms &nbsp;·&nbsp;
-      Benchmarked with <a href="https://github.com/numbbo/coco" target="_blank" rel="noopener">COCO</a>
-      &nbsp;·&nbsp; MIT License &copy; 2026 Martin Juříček
+      COCO framework &mdash;
+      <a href="https://github.com/numbbo/coco" target="_blank">github.com/numbbo/coco</a>
+      &nbsp;|&nbsp;
+      <a href="https://coco.readthedocs.io" target="_blank">Documentation</a>
+      &nbsp;|&nbsp;
+      PlatEMO &mdash;
+      <a href="https://github.com/BIMK/PlatEMO" target="_blank">github.com/BIMK/PlatEMO</a>
     </p>
-  </footer>
+    <div style="margin-top:8px;">
+      <span class="license-badge">
+        &#9878;&nbsp; MIT License &mdash; COCO / numbbo
+      </span>
+    </div>
+    <p style="margin-top:12px; font-size:11px; color:#484f58;">
+      PlatEMO Data-Driven Characterization of Multiobjective Optimization Algorithms &nbsp;&bull;&nbsp; 2026
+    </p>
+  </div>
+</footer>
 
 </body>
 </html>
