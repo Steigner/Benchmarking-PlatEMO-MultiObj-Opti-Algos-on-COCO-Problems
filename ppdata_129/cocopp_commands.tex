@@ -1,0 +1,1008 @@
+\providecommand{\bbobecdfcaptionsinglefunctionssingledim}[1]{
+Empirical cumulative distribution of 
+             runtimes, measured in number of $f$-evaluations,
+             divided by dimension (FEvals/DIM) for the $58$ 
+             targets $\{-10^{-4}, -10^{-4.2}, $ $-10^{-4.4}, -10^{-4.6}, -10^{-4.8}, -10^{-5}, 0, 10^{-5}, 10^{-4.9}, 10^{-4.8}, \dots, 10^{-0.1}, 10^0\}$ in dimension #1.
+}
+\providecommand{\cocoversion}{{\scriptsize\sffamily{}\color{Gray}Data produced with COCO v2.8.2, hv-hash=ff0e71e8cd978373}}
+\providecommand{\numofalgs}{20}
+\providecommand{\bbobECDFslegend}[1]{
+Bootstrapped empirical cumulative distribution of the number of $f$-evaluations divided by dimension (FEvals/DIM) for $58$ targets with target precision in $\{-10^{-4}, -10^{-4.2}, $ $-10^{-4.4}, -10^{-4.6}, -10^{-4.8}, -10^{-5}, 0, 10^{-5}, 10^{-4.9}, 10^{-4.8}, \dots, 10^{-0.1}, 10^0\}$ for all functions and subgroups in #1-D. 
+}
+\providecommand{\bbobppfigslegend}[1]{
+Expected running time (\ERT\ in number of $f$-evaluations
+                    as $\log_{10}$ value), divided by dimension for target function value $10^{-5}$
+                    versus dimension. Slanted grid lines indicate quadratic scaling with the dimension. Different symbols correspond to different algorithms given in the legend of #1. Light symbols give the maximum number of evaluations from the longest trial divided by dimension. Black stars (if present) indicate a better result compared to all other algorithms with $p<0.01$ and Bonferroni correction number of dimensions (six).  
+Legend: 
+{\color{CornflowerBlue}$\circ$}: \algorithmA
+, {{}$\diamondsuit$}: \algorithmB
+, {\color{Green}$\star$}: \algorithmC
+, {\color{red}+}: \algorithmD
+, {\color{brown}$\triangledown$}: \algorithmE
+, {{}x}: \algorithmF
+, {{}$\triangle$}: \algorithmG
+, {{}$\Diamond$}: \algorithmH
+, {{}$\triangleleft$}: \algorithmI
+, {{}$\triangleright$}: \algorithmJ
+, {{}$\pentagon$}: \algorithmK
+, {{}$\diamondsuit$}: \algorithmL
+, {{}$\star$}: \algorithmM
+, {{}+}: \algorithmN
+, {{}$\circ$}: \algorithmO
+, {{}$\triangledown$}: \algorithmP
+, {{}x}: \algorithmQ
+, {{}$\triangle$}: \algorithmR
+, {{}$\Diamond$}: \algorithmS
+, {{}$\triangleleft$}: \algorithmT
+}
+% define some COCO/dvipsnames colors because
+% ACM style does not allow to use them directly
+\definecolor{NavyBlue}{HTML}{000080}
+\definecolor{Magenta}{HTML}{FF00FF}
+\definecolor{Orange}{HTML}{FFA500}
+\definecolor{CornflowerBlue}{HTML}{6495ED}
+\definecolor{YellowGreen}{HTML}{9ACD32}
+\definecolor{Gray}{HTML}{BEBEBE}
+\definecolor{Yellow}{HTML}{FFFF00}
+\definecolor{GreenYellow}{HTML}{ADFF2F}
+\definecolor{ForestGreen}{HTML}{228B22}
+\definecolor{Lavender}{HTML}{FFC0CB}
+\definecolor{SkyBlue}{HTML}{87CEEB}
+\definecolor{NavyBlue}{HTML}{000080}
+\definecolor{Goldenrod}{HTML}{DDF700}
+\definecolor{VioletRed}{HTML}{D02090}
+\definecolor{CornflowerBlue}{HTML}{6495ED}
+\definecolor{LimeGreen}{HTML}{32CD32}
+
+\providecommand{\pptablesfooter}{
+\end{tabularx}
+}
+\providecommand{\pptablesheader}{
+\begin{tabularx}{1.0\textwidth}{@{}c@{}|*{4}{@{}r@{}X@{}}|@{}r@{}@{}l@{}}
+$\Df$ & \multicolumn{2}{@{\,}l@{\,}}{1e0} & \multicolumn{2}{@{\,}l@{\,}}{1e-1} & \multicolumn{2}{@{\,}l@{\,}}{1e-2} & \multicolumn{2}{@{\,}l@{\,}}{1e-3} & \multicolumn{2}{|@{}l@{}}{\begin{rotate}{30}\#succ\end{rotate}}\\\hline
+}
+\providecommand{\ntables}{4}
+\providecommand{\pptablesfooter}{
+\end{tabularx}
+}
+\providecommand{\pptablesheader}{
+\begin{tabularx}{1.0\textwidth}{@{}c@{}|*{4}{@{}r@{}X@{}}|@{}r@{}@{}l@{}}
+$\Df$ & \multicolumn{2}{@{\,}l@{\,}}{1e0} & \multicolumn{2}{@{\,}l@{\,}}{1e-1} & \multicolumn{2}{@{\,}l@{\,}}{1e-2} & \multicolumn{2}{@{\,}l@{\,}}{1e-3} & \multicolumn{2}{|@{}l@{}}{\begin{rotate}{30}\#succ\end{rotate}}\\\hline
+}
+\providecommand{\ntables}{4}
+\providecommand{\pptablesfooter}{
+\end{tabularx}
+}
+\providecommand{\pptablesheader}{
+\begin{tabularx}{1.0\textwidth}{@{}c@{}|*{4}{@{}r@{}X@{}}|@{}r@{}@{}l@{}}
+$\Df$ & \multicolumn{2}{@{\,}l@{\,}}{1e0} & \multicolumn{2}{@{\,}l@{\,}}{1e-1} & \multicolumn{2}{@{\,}l@{\,}}{1e-2} & \multicolumn{2}{@{\,}l@{\,}}{1e-3} & \multicolumn{2}{|@{}l@{}}{\begin{rotate}{30}\#succ\end{rotate}}\\\hline
+}
+\providecommand{\ntables}{4}
+\providecommand{\pptablesfooter}{
+\end{tabularx}
+}
+\providecommand{\pptablesheader}{
+\begin{tabularx}{1.0\textwidth}{@{}c@{}|*{4}{@{}r@{}X@{}}|@{}r@{}@{}l@{}}
+$\Df$ & \multicolumn{2}{@{\,}l@{\,}}{1e0} & \multicolumn{2}{@{\,}l@{\,}}{1e-1} & \multicolumn{2}{@{\,}l@{\,}}{1e-2} & \multicolumn{2}{@{\,}l@{\,}}{1e-3} & \multicolumn{2}{|@{}l@{}}{\begin{rotate}{30}\#succ\end{rotate}}\\\hline
+}
+\providecommand{\algTtables}{\StrLeft{BiGE}{\ntables}}
+\providecommand{\algStables}{\StrLeft{MOCMA}{\ntables}}
+\providecommand{\algRtables}{\StrLeft{IBEA}{\ntables}}
+\providecommand{\algQtables}{\StrLeft{DRLOSEMCMO}{\ntables}}
+\providecommand{\algPtables}{\StrLeft{TSNSGAII}{\ntables}}
+\providecommand{\algOtables}{\StrLeft{onebyoneEA}{\ntables}}
+\providecommand{\algNtables}{\StrLeft{CMOEAMSG}{\ntables}}
+\providecommand{\algMtables}{\StrLeft{hpaEA}{\ntables}}
+\providecommand{\algLtables}{\StrLeft{PREA}{\ntables}}
+\providecommand{\algKtables}{\StrLeft{CMOEAMS}{\ntables}}
+\providecommand{\algJtables}{\StrLeft{MOEADURAW}{\ntables}}
+\providecommand{\algItables}{\StrLeft{MyODEMR}{\ntables}}
+\providecommand{\algHtables}{\StrLeft{TPCMaO}{\ntables}}
+\providecommand{\algGtables}{\StrLeft{ICMA}{\ntables}}
+\providecommand{\algFtables}{\StrLeft{PeEA}{\ntables}}
+\providecommand{\algEtables}{\StrLeft{MOEAIGDNS}{\ntables}}
+\providecommand{\algDtables}{\StrLeft{MaOEAIT}{\ntables}}
+\providecommand{\algCtables}{\StrLeft{DPCPRA}{\ntables}}
+\providecommand{\algBtables}{\StrLeft{BiCo}{\ntables}}
+\providecommand{\algAtables}{\StrLeft{MOBCA}{\ntables}}
+\providecommand{\ntables}{4}
+\providecommand{\pptablesfooter}{
+\end{tabularx}
+}
+\providecommand{\pptablesheader}{
+\begin{tabularx}{1.0\textwidth}{@{}c@{}|*{4}{@{}r@{}X@{}}|@{}r@{}@{}l@{}}
+$\Df$ & \multicolumn{2}{@{\,}l@{\,}}{1e0} & \multicolumn{2}{@{\,}l@{\,}}{1e-1} & \multicolumn{2}{@{\,}l@{\,}}{1e-2} & \multicolumn{2}{@{\,}l@{\,}}{1e-3} & \multicolumn{2}{|@{}l@{}}{\begin{rotate}{30}\#succ\end{rotate}}\\\hline
+}
+\providecommand{\ntables}{4}
+\providecommand{\pptablesfooter}{
+\end{tabularx}
+}
+\providecommand{\pptablesheader}{
+\begin{tabularx}{1.0\textwidth}{@{}c@{}|*{4}{@{}r@{}X@{}}|@{}r@{}@{}l@{}}
+$\Df$ & \multicolumn{2}{@{\,}l@{\,}}{1e0} & \multicolumn{2}{@{\,}l@{\,}}{1e-1} & \multicolumn{2}{@{\,}l@{\,}}{1e-2} & \multicolumn{2}{@{\,}l@{\,}}{1e-3} & \multicolumn{2}{|@{}l@{}}{\begin{rotate}{30}\#succ\end{rotate}}\\\hline
+}
+\providecommand{\ntables}{4}
+\providecommand{\bbobpptablesmanylegend}[1]{%
+        Expected runtime (\ERT) to reach given targets, measured
+        in number of $f$-evaluations, in #1. For each function, the \ERT\ 
+        and, in braces as dispersion measure, the half difference between 10 and 
+        90\%-tile of  runtimes is shown for the different
+        target \DI-values as shown in the top row. 
+        \#succ is the number of trials that reached the last target
+        $\hvref + 10^{-5}$.
+        %
+        The median number of conducted function evaluations is additionally given in 
+        \textit{italics}, if the target in the last column was never reached.
+        The best entry is marked by a star when the largest $p$-value of pairwise
+        rank-sum tests with the other algorithms either obeys $0.01 < p \le 0.05$
+        or $10^{-k-1} < p \le 10^{-k}$ when the star is followed by the number $k$,
+        with Bonferroni correction by the number of functions (92).  Best results are printed in bold.
+        }
+\providecommand{\bbobecdfcaptionsinglefunctionssingledim}[1]{
+Empirical cumulative distribution of 
+             runtimes, measured in number of $f$-evaluations,
+             divided by dimension (FEvals/DIM) for the $58$ 
+             targets $\{-10^{-4}, -10^{-4.2}, $ $-10^{-4.4}, -10^{-4.6}, -10^{-4.8}, -10^{-5}, 0, 10^{-5}, 10^{-4.9}, 10^{-4.8}, \dots, 10^{-0.1}, 10^0\}$ in dimension #1.
+}
+\providecommand{\cocoversion}{{\scriptsize\sffamily{}\color{Gray}Data produced with COCO v2.8.2, hv-hash=ff0e71e8cd978373}}
+\providecommand{\numofalgs}{20}
+\providecommand{\bbobECDFslegend}[1]{
+Bootstrapped empirical cumulative distribution of the number of $f$-evaluations divided by dimension (FEvals/DIM) for $58$ targets with target precision in $\{-10^{-4}, -10^{-4.2}, $ $-10^{-4.4}, -10^{-4.6}, -10^{-4.8}, -10^{-5}, 0, 10^{-5}, 10^{-4.9}, 10^{-4.8}, \dots, 10^{-0.1}, 10^0\}$ for all functions and subgroups in #1-D. 
+}
+\providecommand{\bbobppfigslegend}[1]{
+Expected running time (\ERT\ in number of $f$-evaluations
+                    as $\log_{10}$ value), divided by dimension for target function value $10^{-5}$
+                    versus dimension. Slanted grid lines indicate quadratic scaling with the dimension. Different symbols correspond to different algorithms given in the legend of #1. Light symbols give the maximum number of evaluations from the longest trial divided by dimension. Black stars (if present) indicate a better result compared to all other algorithms with $p<0.01$ and Bonferroni correction number of dimensions (six).  
+Legend: 
+{\color{CornflowerBlue}$\circ$}: \algorithmA
+, {{}$\diamondsuit$}: \algorithmB
+, {\color{Green}$\star$}: \algorithmC
+, {\color{red}+}: \algorithmD
+, {\color{brown}$\triangledown$}: \algorithmE
+, {{}x}: \algorithmF
+, {{}$\triangle$}: \algorithmG
+, {{}$\Diamond$}: \algorithmH
+, {{}$\triangleleft$}: \algorithmI
+, {{}$\triangleright$}: \algorithmJ
+, {{}$\pentagon$}: \algorithmK
+, {{}$\diamondsuit$}: \algorithmL
+, {{}$\star$}: \algorithmM
+, {{}+}: \algorithmN
+, {{}$\circ$}: \algorithmO
+, {{}$\triangledown$}: \algorithmP
+, {{}x}: \algorithmQ
+, {{}$\triangle$}: \algorithmR
+, {{}$\Diamond$}: \algorithmS
+, {{}$\triangleleft$}: \algorithmT
+}
+% define some COCO/dvipsnames colors because
+% ACM style does not allow to use them directly
+\definecolor{NavyBlue}{HTML}{000080}
+\definecolor{Magenta}{HTML}{FF00FF}
+\definecolor{Orange}{HTML}{FFA500}
+\definecolor{CornflowerBlue}{HTML}{6495ED}
+\definecolor{YellowGreen}{HTML}{9ACD32}
+\definecolor{Gray}{HTML}{BEBEBE}
+\definecolor{Yellow}{HTML}{FFFF00}
+\definecolor{GreenYellow}{HTML}{ADFF2F}
+\definecolor{ForestGreen}{HTML}{228B22}
+\definecolor{Lavender}{HTML}{FFC0CB}
+\definecolor{SkyBlue}{HTML}{87CEEB}
+\definecolor{NavyBlue}{HTML}{000080}
+\definecolor{Goldenrod}{HTML}{DDF700}
+\definecolor{VioletRed}{HTML}{D02090}
+\definecolor{CornflowerBlue}{HTML}{6495ED}
+\definecolor{LimeGreen}{HTML}{32CD32}
+
+\providecommand{\bbobecdfcaptionsinglefunctionssingledim}[1]{
+Empirical cumulative distribution of 
+             runtimes, measured in number of $f$-evaluations,
+             divided by dimension (FEvals/DIM) for the $58$ 
+             targets $\{-10^{-4}, -10^{-4.2}, $ $-10^{-4.4}, -10^{-4.6}, -10^{-4.8}, -10^{-5}, 0, 10^{-5}, 10^{-4.9}, 10^{-4.8}, \dots, 10^{-0.1}, 10^0\}$ in dimension #1.
+}
+\providecommand{\cocoversion}{{\scriptsize\sffamily{}\color{Gray}Data produced with COCO v2.8.2, hv-hash=ff0e71e8cd978373}}
+\providecommand{\numofalgs}{20}
+\providecommand{\bbobECDFslegend}[1]{
+Bootstrapped empirical cumulative distribution of the number of $f$-evaluations divided by dimension (FEvals/DIM) for $58$ targets with target precision in $\{-10^{-4}, -10^{-4.2}, $ $-10^{-4.4}, -10^{-4.6}, -10^{-4.8}, -10^{-5}, 0, 10^{-5}, 10^{-4.9}, 10^{-4.8}, \dots, 10^{-0.1}, 10^0\}$ for all functions and subgroups in #1-D. 
+}
+\providecommand{\bbobppfigslegend}[1]{
+Expected running time (\ERT\ in number of $f$-evaluations
+                    as $\log_{10}$ value), divided by dimension for target function value $10^{-5}$
+                    versus dimension. Slanted grid lines indicate quadratic scaling with the dimension. Different symbols correspond to different algorithms given in the legend of #1. Light symbols give the maximum number of evaluations from the longest trial divided by dimension. Black stars (if present) indicate a better result compared to all other algorithms with $p<0.01$ and Bonferroni correction number of dimensions (six).  
+Legend: 
+{\color{CornflowerBlue}$\circ$}: \algorithmA
+, {{}$\diamondsuit$}: \algorithmB
+, {\color{Green}$\star$}: \algorithmC
+, {\color{red}+}: \algorithmD
+, {\color{brown}$\triangledown$}: \algorithmE
+, {{}x}: \algorithmF
+, {{}$\triangle$}: \algorithmG
+, {{}$\Diamond$}: \algorithmH
+, {{}$\triangleleft$}: \algorithmI
+, {{}$\triangleright$}: \algorithmJ
+, {{}$\pentagon$}: \algorithmK
+, {{}$\diamondsuit$}: \algorithmL
+, {{}$\star$}: \algorithmM
+, {{}+}: \algorithmN
+, {{}$\circ$}: \algorithmO
+, {{}$\triangledown$}: \algorithmP
+, {{}x}: \algorithmQ
+, {{}$\triangle$}: \algorithmR
+, {{}$\Diamond$}: \algorithmS
+, {{}$\triangleleft$}: \algorithmT
+}
+% define some COCO/dvipsnames colors because
+% ACM style does not allow to use them directly
+\definecolor{NavyBlue}{HTML}{000080}
+\definecolor{Magenta}{HTML}{FF00FF}
+\definecolor{Orange}{HTML}{FFA500}
+\definecolor{CornflowerBlue}{HTML}{6495ED}
+\definecolor{YellowGreen}{HTML}{9ACD32}
+\definecolor{Gray}{HTML}{BEBEBE}
+\definecolor{Yellow}{HTML}{FFFF00}
+\definecolor{GreenYellow}{HTML}{ADFF2F}
+\definecolor{ForestGreen}{HTML}{228B22}
+\definecolor{Lavender}{HTML}{FFC0CB}
+\definecolor{SkyBlue}{HTML}{87CEEB}
+\definecolor{NavyBlue}{HTML}{000080}
+\definecolor{Goldenrod}{HTML}{DDF700}
+\definecolor{VioletRed}{HTML}{D02090}
+\definecolor{CornflowerBlue}{HTML}{6495ED}
+\definecolor{LimeGreen}{HTML}{32CD32}
+
+\providecommand{\pptablesfooter}{
+\end{tabularx}
+}
+\providecommand{\pptablesheader}{
+\begin{tabularx}{1.0\textwidth}{@{}c@{}|*{4}{@{}r@{}X@{}}|@{}r@{}@{}l@{}}
+$\Df$ & \multicolumn{2}{@{\,}l@{\,}}{1e0} & \multicolumn{2}{@{\,}l@{\,}}{1e-1} & \multicolumn{2}{@{\,}l@{\,}}{1e-2} & \multicolumn{2}{@{\,}l@{\,}}{1e-3} & \multicolumn{2}{|@{}l@{}}{\begin{rotate}{30}\#succ\end{rotate}}\\\hline
+}
+\providecommand{\ntables}{4}
+\providecommand{\pptablesfooter}{
+\end{tabularx}
+}
+\providecommand{\pptablesheader}{
+\begin{tabularx}{1.0\textwidth}{@{}c@{}|*{4}{@{}r@{}X@{}}|@{}r@{}@{}l@{}}
+$\Df$ & \multicolumn{2}{@{\,}l@{\,}}{1e0} & \multicolumn{2}{@{\,}l@{\,}}{1e-1} & \multicolumn{2}{@{\,}l@{\,}}{1e-2} & \multicolumn{2}{@{\,}l@{\,}}{1e-3} & \multicolumn{2}{|@{}l@{}}{\begin{rotate}{30}\#succ\end{rotate}}\\\hline
+}
+\providecommand{\ntables}{4}
+\providecommand{\bbobecdfcaptionsinglefunctionssingledim}[1]{
+Empirical cumulative distribution of 
+             runtimes, measured in number of $f$-evaluations,
+             divided by dimension (FEvals/DIM) for the $58$ 
+             targets $\{-10^{-4}, -10^{-4.2}, $ $-10^{-4.4}, -10^{-4.6}, -10^{-4.8}, -10^{-5}, 0, 10^{-5}, 10^{-4.9}, 10^{-4.8}, \dots, 10^{-0.1}, 10^0\}$ in dimension #1.
+}
+\providecommand{\cocoversion}{{\scriptsize\sffamily{}\color{Gray}Data produced with COCO v2.8.2, hv-hash=ff0e71e8cd978373}}
+\providecommand{\numofalgs}{20}
+\providecommand{\pptablesfooter}{
+\end{tabularx}
+}
+\providecommand{\pptablesheader}{
+\begin{tabularx}{1.0\textwidth}{@{}c@{}|*{4}{@{}r@{}X@{}}|@{}r@{}@{}l@{}}
+$\Df$ & \multicolumn{2}{@{\,}l@{\,}}{1e0} & \multicolumn{2}{@{\,}l@{\,}}{1e-1} & \multicolumn{2}{@{\,}l@{\,}}{1e-2} & \multicolumn{2}{@{\,}l@{\,}}{1e-3} & \multicolumn{2}{|@{}l@{}}{\begin{rotate}{30}\#succ\end{rotate}}\\\hline
+}
+\providecommand{\ntables}{4}
+\providecommand{\pptablesfooter}{
+\end{tabularx}
+}
+\providecommand{\pptablesheader}{
+\begin{tabularx}{1.0\textwidth}{@{}c@{}|*{4}{@{}r@{}X@{}}|@{}r@{}@{}l@{}}
+$\Df$ & \multicolumn{2}{@{\,}l@{\,}}{1e0} & \multicolumn{2}{@{\,}l@{\,}}{1e-1} & \multicolumn{2}{@{\,}l@{\,}}{1e-2} & \multicolumn{2}{@{\,}l@{\,}}{1e-3} & \multicolumn{2}{|@{}l@{}}{\begin{rotate}{30}\#succ\end{rotate}}\\\hline
+}
+\providecommand{\algTtables}{\StrLeft{MaOEAIGD}{\ntables}}
+\providecommand{\algStables}{\StrLeft{SVRNSGAII}{\ntables}}
+\providecommand{\algRtables}{\StrLeft{BCEMOEAD}{\ntables}}
+\providecommand{\algQtables}{\StrLeft{SRA}{\ntables}}
+\providecommand{\algPtables}{\StrLeft{DNNSGAII}{\ntables}}
+\providecommand{\algOtables}{\StrLeft{HEA}{\ntables}}
+\providecommand{\algNtables}{\StrLeft{PICEAg}{\ntables}}
+\providecommand{\algMtables}{\StrLeft{GrEA}{\ntables}}
+\providecommand{\algLtables}{\StrLeft{PPS}{\ntables}}
+\providecommand{\algKtables}{\StrLeft{DNSGAII}{\ntables}}
+\providecommand{\algJtables}{\StrLeft{CMOEACD}{\ntables}}
+\providecommand{\algItables}{\StrLeft{MMOPSO}{\ntables}}
+\providecommand{\algHtables}{\StrLeft{gNSGAII}{\ntables}}
+\providecommand{\algGtables}{\StrLeft{MCCMO}{\ntables}}
+\providecommand{\algFtables}{\StrLeft{CMOEAD}{\ntables}}
+\providecommand{\algEtables}{\StrLeft{MaOEADDFC}{\ntables}}
+\providecommand{\algDtables}{\StrLeft{MOEADSTM}{\ntables}}
+\providecommand{\algCtables}{\StrLeft{BCEIBEA}{\ntables}}
+\providecommand{\algBtables}{\StrLeft{eMOEA}{\ntables}}
+\providecommand{\algAtables}{\StrLeft{MOEADPaS}{\ntables}}
+\providecommand{\ntables}{4}
+\providecommand{\pptablesfooter}{
+\end{tabularx}
+}
+\providecommand{\pptablesheader}{
+\begin{tabularx}{1.0\textwidth}{@{}c@{}|*{4}{@{}r@{}X@{}}|@{}r@{}@{}l@{}}
+$\Df$ & \multicolumn{2}{@{\,}l@{\,}}{1e0} & \multicolumn{2}{@{\,}l@{\,}}{1e-1} & \multicolumn{2}{@{\,}l@{\,}}{1e-2} & \multicolumn{2}{@{\,}l@{\,}}{1e-3} & \multicolumn{2}{|@{}l@{}}{\begin{rotate}{30}\#succ\end{rotate}}\\\hline
+}
+\providecommand{\ntables}{4}
+\providecommand{\bbobECDFslegend}[1]{
+Bootstrapped empirical cumulative distribution of the number of $f$-evaluations divided by dimension (FEvals/DIM) for $58$ targets with target precision in $\{-10^{-4}, -10^{-4.2}, $ $-10^{-4.4}, -10^{-4.6}, -10^{-4.8}, -10^{-5}, 0, 10^{-5}, 10^{-4.9}, 10^{-4.8}, \dots, 10^{-0.1}, 10^0\}$ for all functions and subgroups in #1-D. 
+}
+\providecommand{\bbobppfigslegend}[1]{
+Expected running time (\ERT\ in number of $f$-evaluations
+                    as $\log_{10}$ value), divided by dimension for target function value $10^{-5}$
+                    versus dimension. Slanted grid lines indicate quadratic scaling with the dimension. Different symbols correspond to different algorithms given in the legend of #1. Light symbols give the maximum number of evaluations from the longest trial divided by dimension. Black stars (if present) indicate a better result compared to all other algorithms with $p<0.01$ and Bonferroni correction number of dimensions (six).  
+Legend: 
+{\color{CornflowerBlue}$\circ$}: \algorithmA
+, {{}$\diamondsuit$}: \algorithmB
+, {\color{Green}$\star$}: \algorithmC
+, {\color{red}+}: \algorithmD
+, {\color{brown}$\triangledown$}: \algorithmE
+, {{}x}: \algorithmF
+, {{}$\triangle$}: \algorithmG
+, {{}$\Diamond$}: \algorithmH
+, {{}$\triangleleft$}: \algorithmI
+, {{}$\triangleright$}: \algorithmJ
+, {{}$\pentagon$}: \algorithmK
+, {{}$\diamondsuit$}: \algorithmL
+, {{}$\star$}: \algorithmM
+, {{}+}: \algorithmN
+, {{}$\circ$}: \algorithmO
+, {{}$\triangledown$}: \algorithmP
+, {{}x}: \algorithmQ
+, {{}$\triangle$}: \algorithmR
+, {{}$\Diamond$}: \algorithmS
+, {{}$\triangleleft$}: \algorithmT
+}
+% define some COCO/dvipsnames colors because
+% ACM style does not allow to use them directly
+\definecolor{NavyBlue}{HTML}{000080}
+\definecolor{Magenta}{HTML}{FF00FF}
+\definecolor{Orange}{HTML}{FFA500}
+\definecolor{CornflowerBlue}{HTML}{6495ED}
+\definecolor{YellowGreen}{HTML}{9ACD32}
+\definecolor{Gray}{HTML}{BEBEBE}
+\definecolor{Yellow}{HTML}{FFFF00}
+\definecolor{GreenYellow}{HTML}{ADFF2F}
+\definecolor{ForestGreen}{HTML}{228B22}
+\definecolor{Lavender}{HTML}{FFC0CB}
+\definecolor{SkyBlue}{HTML}{87CEEB}
+\definecolor{NavyBlue}{HTML}{000080}
+\definecolor{Goldenrod}{HTML}{DDF700}
+\definecolor{VioletRed}{HTML}{D02090}
+\definecolor{CornflowerBlue}{HTML}{6495ED}
+\definecolor{LimeGreen}{HTML}{32CD32}
+
+\providecommand{\pptablesfooter}{
+\end{tabularx}
+}
+\providecommand{\pptablesheader}{
+\begin{tabularx}{1.0\textwidth}{@{}c@{}|*{4}{@{}r@{}X@{}}|@{}r@{}@{}l@{}}
+$\Df$ & \multicolumn{2}{@{\,}l@{\,}}{1e0} & \multicolumn{2}{@{\,}l@{\,}}{1e-1} & \multicolumn{2}{@{\,}l@{\,}}{1e-2} & \multicolumn{2}{@{\,}l@{\,}}{1e-3} & \multicolumn{2}{|@{}l@{}}{\begin{rotate}{30}\#succ\end{rotate}}\\\hline
+}
+\providecommand{\ntables}{4}
+\providecommand{\bbobpptablesmanylegend}[1]{%
+        Expected runtime (\ERT) to reach given targets, measured
+        in number of $f$-evaluations, in #1. For each function, the \ERT\ 
+        and, in braces as dispersion measure, the half difference between 10 and 
+        90\%-tile of  runtimes is shown for the different
+        target \DI-values as shown in the top row. 
+        \#succ is the number of trials that reached the last target
+        $\hvref + 10^{-5}$.
+        %
+        The median number of conducted function evaluations is additionally given in 
+        \textit{italics}, if the target in the last column was never reached.
+        The best entry is marked by a star when the largest $p$-value of pairwise
+        rank-sum tests with the other algorithms either obeys $0.01 < p \le 0.05$
+        or $10^{-k-1} < p \le 10^{-k}$ when the star is followed by the number $k$,
+        with Bonferroni correction by the number of functions (92).  Best results are printed in bold.
+        }
+\providecommand{\pptablesfooter}{
+\end{tabularx}
+}
+\providecommand{\pptablesheader}{
+\begin{tabularx}{1.0\textwidth}{@{}c@{}|*{4}{@{}r@{}X@{}}|@{}r@{}@{}l@{}}
+$\Df$ & \multicolumn{2}{@{\,}l@{\,}}{1e0} & \multicolumn{2}{@{\,}l@{\,}}{1e-1} & \multicolumn{2}{@{\,}l@{\,}}{1e-2} & \multicolumn{2}{@{\,}l@{\,}}{1e-3} & \multicolumn{2}{|@{}l@{}}{\begin{rotate}{30}\#succ\end{rotate}}\\\hline
+}
+\providecommand{\ntables}{4}
+\providecommand{\pptablesfooter}{
+\end{tabularx}
+}
+\providecommand{\pptablesheader}{
+\begin{tabularx}{1.0\textwidth}{@{}c@{}|*{4}{@{}r@{}X@{}}|@{}r@{}@{}l@{}}
+$\Df$ & \multicolumn{2}{@{\,}l@{\,}}{1e0} & \multicolumn{2}{@{\,}l@{\,}}{1e-1} & \multicolumn{2}{@{\,}l@{\,}}{1e-2} & \multicolumn{2}{@{\,}l@{\,}}{1e-3} & \multicolumn{2}{|@{}l@{}}{\begin{rotate}{30}\#succ\end{rotate}}\\\hline
+}
+\providecommand{\ntables}{4}
+\providecommand{\pptablesfooter}{
+\end{tabularx}
+}
+\providecommand{\pptablesheader}{
+\begin{tabularx}{1.0\textwidth}{@{}c@{}|*{4}{@{}r@{}X@{}}|@{}r@{}@{}l@{}}
+$\Df$ & \multicolumn{2}{@{\,}l@{\,}}{1e0} & \multicolumn{2}{@{\,}l@{\,}}{1e-1} & \multicolumn{2}{@{\,}l@{\,}}{1e-2} & \multicolumn{2}{@{\,}l@{\,}}{1e-3} & \multicolumn{2}{|@{}l@{}}{\begin{rotate}{30}\#succ\end{rotate}}\\\hline
+}
+\providecommand{\ntables}{4}
+\providecommand{\pptablesfooter}{
+\end{tabularx}
+}
+\providecommand{\pptablesheader}{
+\begin{tabularx}{1.0\textwidth}{@{}c@{}|*{4}{@{}r@{}X@{}}|@{}r@{}@{}l@{}}
+$\Df$ & \multicolumn{2}{@{\,}l@{\,}}{1e0} & \multicolumn{2}{@{\,}l@{\,}}{1e-1} & \multicolumn{2}{@{\,}l@{\,}}{1e-2} & \multicolumn{2}{@{\,}l@{\,}}{1e-3} & \multicolumn{2}{|@{}l@{}}{\begin{rotate}{30}\#succ\end{rotate}}\\\hline
+}
+\providecommand{\algTtables}{\StrLeft{IMCMOEAD}{\ntables}}
+\providecommand{\algStables}{\StrLeft{tDEA}{\ntables}}
+\providecommand{\algRtables}{\StrLeft{MOCell}{\ntables}}
+\providecommand{\algQtables}{\StrLeft{MOEAD}{\ntables}}
+\providecommand{\algPtables}{\StrLeft{EFRRR}{\ntables}}
+\providecommand{\algOtables}{\StrLeft{TiGE2}{\ntables}}
+\providecommand{\algNtables}{\StrLeft{EAGMOEAD}{\ntables}}
+\providecommand{\algMtables}{\StrLeft{MOEAPC}{\ntables}}
+\providecommand{\algLtables}{\StrLeft{NMPSO}{\ntables}}
+\providecommand{\algKtables}{\StrLeft{RMMEDA}{\ntables}}
+\providecommand{\algJtables}{\StrLeft{MOMBIII}{\ntables}}
+\providecommand{\algItables}{\StrLeft{NRVMOEA}{\ntables}}
+\providecommand{\algHtables}{\StrLeft{C3M}{\ntables}}
+\providecommand{\algGtables}{\StrLeft{rNSGAII}{\ntables}}
+\providecommand{\algFtables}{\StrLeft{TSTI}{\ntables}}
+\providecommand{\algEtables}{\StrLeft{RPDNSGAII}{\ntables}}
+\providecommand{\algDtables}{\StrLeft{CAEAD}{\ntables}}
+\providecommand{\algCtables}{\StrLeft{CMOPSO}{\ntables}}
+\providecommand{\algBtables}{\StrLeft{IDBEA}{\ntables}}
+\providecommand{\algAtables}{\StrLeft{CMOEMT}{\ntables}}
+\providecommand{\ntables}{4}
+\providecommand{\pptablesfooter}{
+\end{tabularx}
+}
+\providecommand{\pptablesheader}{
+\begin{tabularx}{1.0\textwidth}{@{}c@{}|*{4}{@{}r@{}X@{}}|@{}r@{}@{}l@{}}
+$\Df$ & \multicolumn{2}{@{\,}l@{\,}}{1e0} & \multicolumn{2}{@{\,}l@{\,}}{1e-1} & \multicolumn{2}{@{\,}l@{\,}}{1e-2} & \multicolumn{2}{@{\,}l@{\,}}{1e-3} & \multicolumn{2}{|@{}l@{}}{\begin{rotate}{30}\#succ\end{rotate}}\\\hline
+}
+\providecommand{\ntables}{4}
+\providecommand{\pptablesfooter}{
+\end{tabularx}
+}
+\providecommand{\pptablesheader}{
+\begin{tabularx}{1.0\textwidth}{@{}c@{}|*{4}{@{}r@{}X@{}}|@{}r@{}@{}l@{}}
+$\Df$ & \multicolumn{2}{@{\,}l@{\,}}{1e0} & \multicolumn{2}{@{\,}l@{\,}}{1e-1} & \multicolumn{2}{@{\,}l@{\,}}{1e-2} & \multicolumn{2}{@{\,}l@{\,}}{1e-3} & \multicolumn{2}{|@{}l@{}}{\begin{rotate}{30}\#succ\end{rotate}}\\\hline
+}
+\providecommand{\ntables}{4}
+\providecommand{\bbobpptablesmanylegend}[1]{%
+        Expected runtime (\ERT) to reach given targets, measured
+        in number of $f$-evaluations, in #1. For each function, the \ERT\ 
+        and, in braces as dispersion measure, the half difference between 10 and 
+        90\%-tile of  runtimes is shown for the different
+        target \DI-values as shown in the top row. 
+        \#succ is the number of trials that reached the last target
+        $\hvref + 10^{-5}$.
+        %
+        The median number of conducted function evaluations is additionally given in 
+        \textit{italics}, if the target in the last column was never reached.
+        The best entry is marked by a star when the largest $p$-value of pairwise
+        rank-sum tests with the other algorithms either obeys $0.01 < p \le 0.05$
+        or $10^{-k-1} < p \le 10^{-k}$ when the star is followed by the number $k$,
+        with Bonferroni correction by the number of functions (92).  Best results are printed in bold.
+        }
+\providecommand{\pptablesfooter}{
+\end{tabularx}
+}
+\providecommand{\pptablesheader}{
+\begin{tabularx}{1.0\textwidth}{@{}c@{}|*{4}{@{}r@{}X@{}}|@{}r@{}@{}l@{}}
+$\Df$ & \multicolumn{2}{@{\,}l@{\,}}{1e0} & \multicolumn{2}{@{\,}l@{\,}}{1e-1} & \multicolumn{2}{@{\,}l@{\,}}{1e-2} & \multicolumn{2}{@{\,}l@{\,}}{1e-3} & \multicolumn{2}{|@{}l@{}}{\begin{rotate}{30}\#succ\end{rotate}}\\\hline
+}
+\providecommand{\ntables}{4}
+\providecommand{\pptablesfooter}{
+\end{tabularx}
+}
+\providecommand{\pptablesheader}{
+\begin{tabularx}{1.0\textwidth}{@{}c@{}|*{4}{@{}r@{}X@{}}|@{}r@{}@{}l@{}}
+$\Df$ & \multicolumn{2}{@{\,}l@{\,}}{1e0} & \multicolumn{2}{@{\,}l@{\,}}{1e-1} & \multicolumn{2}{@{\,}l@{\,}}{1e-2} & \multicolumn{2}{@{\,}l@{\,}}{1e-3} & \multicolumn{2}{|@{}l@{}}{\begin{rotate}{30}\#succ\end{rotate}}\\\hline
+}
+\providecommand{\ntables}{4}
+\providecommand{\pptablesfooter}{
+\end{tabularx}
+}
+\providecommand{\pptablesheader}{
+\begin{tabularx}{1.0\textwidth}{@{}c@{}|*{4}{@{}r@{}X@{}}|@{}r@{}@{}l@{}}
+$\Df$ & \multicolumn{2}{@{\,}l@{\,}}{1e0} & \multicolumn{2}{@{\,}l@{\,}}{1e-1} & \multicolumn{2}{@{\,}l@{\,}}{1e-2} & \multicolumn{2}{@{\,}l@{\,}}{1e-3} & \multicolumn{2}{|@{}l@{}}{\begin{rotate}{30}\#succ\end{rotate}}\\\hline
+}
+\providecommand{\ntables}{4}
+\providecommand{\pptablesfooter}{
+\end{tabularx}
+}
+\providecommand{\pptablesheader}{
+\begin{tabularx}{1.0\textwidth}{@{}c@{}|*{4}{@{}r@{}X@{}}|@{}r@{}@{}l@{}}
+$\Df$ & \multicolumn{2}{@{\,}l@{\,}}{1e0} & \multicolumn{2}{@{\,}l@{\,}}{1e-1} & \multicolumn{2}{@{\,}l@{\,}}{1e-2} & \multicolumn{2}{@{\,}l@{\,}}{1e-3} & \multicolumn{2}{|@{}l@{}}{\begin{rotate}{30}\#succ\end{rotate}}\\\hline
+}
+\providecommand{\algTtables}{\StrLeft{WASFGA}{\ntables}}
+\providecommand{\algStables}{\StrLeft{SPEA2}{\ntables}}
+\providecommand{\algRtables}{\StrLeft{MOEADDU}{\ntables}}
+\providecommand{\algQtables}{\StrLeft{NSGAIIconflict}{\ntables}}
+\providecommand{\algPtables}{\StrLeft{MSCMO}{\ntables}}
+\providecommand{\algOtables}{\StrLeft{LMEA}{\ntables}}
+\providecommand{\algNtables}{\StrLeft{GLMO}{\ntables}}
+\providecommand{\algMtables}{\StrLeft{CLIA}{\ntables}}
+\providecommand{\algLtables}{\StrLeft{MSEA}{\ntables}}
+\providecommand{\algKtables}{\StrLeft{CTSEA}{\ntables}}
+\providecommand{\algJtables}{\StrLeft{LERD}{\ntables}}
+\providecommand{\algItables}{\StrLeft{VaEA}{\ntables}}
+\providecommand{\algHtables}{\StrLeft{MOEADDRA}{\ntables}}
+\providecommand{\algGtables}{\StrLeft{CMEGL}{\ntables}}
+\providecommand{\algFtables}{\StrLeft{DAEA}{\ntables}}
+\providecommand{\algEtables}{\StrLeft{ANSGAIII}{\ntables}}
+\providecommand{\algDtables}{\StrLeft{AGEMOEAII}{\ntables}}
+\providecommand{\algCtables}{\StrLeft{NSGAIISDR}{\ntables}}
+\providecommand{\algBtables}{\StrLeft{SMSEMOA}{\ntables}}
+\providecommand{\algAtables}{\StrLeft{GDE3}{\ntables}}
+\providecommand{\ntables}{4}
+\providecommand{\pptablesfooter}{
+\end{tabularx}
+}
+\providecommand{\pptablesheader}{
+\begin{tabularx}{1.0\textwidth}{@{}c@{}|*{4}{@{}r@{}X@{}}|@{}r@{}@{}l@{}}
+$\Df$ & \multicolumn{2}{@{\,}l@{\,}}{1e0} & \multicolumn{2}{@{\,}l@{\,}}{1e-1} & \multicolumn{2}{@{\,}l@{\,}}{1e-2} & \multicolumn{2}{@{\,}l@{\,}}{1e-3} & \multicolumn{2}{|@{}l@{}}{\begin{rotate}{30}\#succ\end{rotate}}\\\hline
+}
+\providecommand{\ntables}{4}
+\providecommand{\pptablesfooter}{
+\end{tabularx}
+}
+\providecommand{\pptablesheader}{
+\begin{tabularx}{1.0\textwidth}{@{}c@{}|*{4}{@{}r@{}X@{}}|@{}r@{}@{}l@{}}
+$\Df$ & \multicolumn{2}{@{\,}l@{\,}}{1e0} & \multicolumn{2}{@{\,}l@{\,}}{1e-1} & \multicolumn{2}{@{\,}l@{\,}}{1e-2} & \multicolumn{2}{@{\,}l@{\,}}{1e-3} & \multicolumn{2}{|@{}l@{}}{\begin{rotate}{30}\#succ\end{rotate}}\\\hline
+}
+\providecommand{\ntables}{4}
+\providecommand{\bbobpptablesmanylegend}[1]{%
+        Expected runtime (\ERT) to reach given targets, measured
+        in number of $f$-evaluations, in #1. For each function, the \ERT\ 
+        and, in braces as dispersion measure, the half difference between 10 and 
+        90\%-tile of  runtimes is shown for the different
+        target \DI-values as shown in the top row. 
+        \#succ is the number of trials that reached the last target
+        $\hvref + 10^{-5}$.
+        %
+        The median number of conducted function evaluations is additionally given in 
+        \textit{italics}, if the target in the last column was never reached.
+        The best entry is marked by a star when the largest $p$-value of pairwise
+        rank-sum tests with the other algorithms either obeys $0.01 < p \le 0.05$
+        or $10^{-k-1} < p \le 10^{-k}$ when the star is followed by the number $k$,
+        with Bonferroni correction by the number of functions (92).  Best results are printed in bold.
+        }
+\providecommand{\algsfolder}{biobj-ext_MOBCA_BiCo_DPCPR_MaOEA_MOEAI_PeEA_ICMA_et_al_041002h2216/}
+\providecommand{\bbobecdfcaptionsinglefunctionssingledim}[1]{
+Empirical cumulative distribution of 
+             runtimes, measured in number of $f$-evaluations,
+             divided by dimension (FEvals/DIM) for the $58$ 
+             targets $\{-10^{-4}, -10^{-4.2}, $ $-10^{-4.4}, -10^{-4.6}, -10^{-4.8}, -10^{-5}, 0, 10^{-5}, 10^{-4.9}, 10^{-4.8}, \dots, 10^{-0.1}, 10^0\}$ in dimension #1.
+}
+\providecommand{\cocoversion}{{\scriptsize\sffamily{}\color{Gray}Data produced with COCO v2.8.2, hv-hash=ff0e71e8cd978373}}
+\providecommand{\numofalgs}{20}
+\providecommand{\bbobECDFslegend}[1]{
+Bootstrapped empirical cumulative distribution of the number of $f$-evaluations divided by dimension (FEvals/DIM) for $58$ targets with target precision in $\{-10^{-4}, -10^{-4.2}, $ $-10^{-4.4}, -10^{-4.6}, -10^{-4.8}, -10^{-5}, 0, 10^{-5}, 10^{-4.9}, 10^{-4.8}, \dots, 10^{-0.1}, 10^0\}$ for all functions and subgroups in #1-D. 
+}
+\providecommand{\bbobppfigslegend}[1]{
+Expected running time (\ERT\ in number of $f$-evaluations
+                    as $\log_{10}$ value), divided by dimension for target function value $10^{-5}$
+                    versus dimension. Slanted grid lines indicate quadratic scaling with the dimension. Different symbols correspond to different algorithms given in the legend of #1. Light symbols give the maximum number of evaluations from the longest trial divided by dimension. Black stars (if present) indicate a better result compared to all other algorithms with $p<0.01$ and Bonferroni correction number of dimensions (six).  
+Legend: 
+{\color{CornflowerBlue}$\circ$}: \algorithmA
+, {{}$\diamondsuit$}: \algorithmB
+, {\color{Green}$\star$}: \algorithmC
+, {\color{red}+}: \algorithmD
+, {\color{brown}$\triangledown$}: \algorithmE
+, {{}x}: \algorithmF
+, {{}$\triangle$}: \algorithmG
+, {{}$\Diamond$}: \algorithmH
+, {{}$\triangleleft$}: \algorithmI
+, {{}$\triangleright$}: \algorithmJ
+, {{}$\pentagon$}: \algorithmK
+, {{}$\diamondsuit$}: \algorithmL
+, {{}$\star$}: \algorithmM
+, {{}+}: \algorithmN
+, {{}$\circ$}: \algorithmO
+, {{}$\triangledown$}: \algorithmP
+, {{}x}: \algorithmQ
+, {{}$\triangle$}: \algorithmR
+, {{}$\Diamond$}: \algorithmS
+, {{}$\triangleleft$}: \algorithmT
+}
+% define some COCO/dvipsnames colors because
+% ACM style does not allow to use them directly
+\definecolor{NavyBlue}{HTML}{000080}
+\definecolor{Magenta}{HTML}{FF00FF}
+\definecolor{Orange}{HTML}{FFA500}
+\definecolor{CornflowerBlue}{HTML}{6495ED}
+\definecolor{YellowGreen}{HTML}{9ACD32}
+\definecolor{Gray}{HTML}{BEBEBE}
+\definecolor{Yellow}{HTML}{FFFF00}
+\definecolor{GreenYellow}{HTML}{ADFF2F}
+\definecolor{ForestGreen}{HTML}{228B22}
+\definecolor{Lavender}{HTML}{FFC0CB}
+\definecolor{SkyBlue}{HTML}{87CEEB}
+\definecolor{NavyBlue}{HTML}{000080}
+\definecolor{Goldenrod}{HTML}{DDF700}
+\definecolor{VioletRed}{HTML}{D02090}
+\definecolor{CornflowerBlue}{HTML}{6495ED}
+\definecolor{LimeGreen}{HTML}{32CD32}
+
+\providecommand{\pptablesfooter}{
+\end{tabularx}
+}
+\providecommand{\pptablesheader}{
+\begin{tabularx}{1.0\textwidth}{@{}c@{}|*{4}{@{}r@{}X@{}}|@{}r@{}@{}l@{}}
+$\Df$ & \multicolumn{2}{@{\,}l@{\,}}{1e0} & \multicolumn{2}{@{\,}l@{\,}}{1e-1} & \multicolumn{2}{@{\,}l@{\,}}{1e-2} & \multicolumn{2}{@{\,}l@{\,}}{1e-3} & \multicolumn{2}{|@{}l@{}}{\begin{rotate}{30}\#succ\end{rotate}}\\\hline
+}
+\providecommand{\ntables}{4}
+\providecommand{\pptablesfooter}{
+\end{tabularx}
+}
+\providecommand{\pptablesheader}{
+\begin{tabularx}{1.0\textwidth}{@{}c@{}|*{4}{@{}r@{}X@{}}|@{}r@{}@{}l@{}}
+$\Df$ & \multicolumn{2}{@{\,}l@{\,}}{1e0} & \multicolumn{2}{@{\,}l@{\,}}{1e-1} & \multicolumn{2}{@{\,}l@{\,}}{1e-2} & \multicolumn{2}{@{\,}l@{\,}}{1e-3} & \multicolumn{2}{|@{}l@{}}{\begin{rotate}{30}\#succ\end{rotate}}\\\hline
+}
+\providecommand{\ntables}{4}
+\providecommand{\pptablesfooter}{
+\end{tabularx}
+}
+\providecommand{\pptablesheader}{
+\begin{tabularx}{1.0\textwidth}{@{}c@{}|*{4}{@{}r@{}X@{}}|@{}r@{}@{}l@{}}
+$\Df$ & \multicolumn{2}{@{\,}l@{\,}}{1e0} & \multicolumn{2}{@{\,}l@{\,}}{1e-1} & \multicolumn{2}{@{\,}l@{\,}}{1e-2} & \multicolumn{2}{@{\,}l@{\,}}{1e-3} & \multicolumn{2}{|@{}l@{}}{\begin{rotate}{30}\#succ\end{rotate}}\\\hline
+}
+\providecommand{\ntables}{4}
+\providecommand{\pptablesfooter}{
+\end{tabularx}
+}
+\providecommand{\pptablesheader}{
+\begin{tabularx}{1.0\textwidth}{@{}c@{}|*{4}{@{}r@{}X@{}}|@{}r@{}@{}l@{}}
+$\Df$ & \multicolumn{2}{@{\,}l@{\,}}{1e0} & \multicolumn{2}{@{\,}l@{\,}}{1e-1} & \multicolumn{2}{@{\,}l@{\,}}{1e-2} & \multicolumn{2}{@{\,}l@{\,}}{1e-3} & \multicolumn{2}{|@{}l@{}}{\begin{rotate}{30}\#succ\end{rotate}}\\\hline
+}
+\providecommand{\algTtables}{\StrLeft{LCSA}{\ntables}}
+\providecommand{\algStables}{\StrLeft{SMPSO}{\ntables}}
+\providecommand{\algRtables}{\StrLeft{Two Arch2}{\ntables}}
+\providecommand{\algQtables}{\StrLeft{NSGAII}{\ntables}}
+\providecommand{\algPtables}{\StrLeft{CPSMOEA}{\ntables}}
+\providecommand{\algOtables}{\StrLeft{MOEADDCWV}{\ntables}}
+\providecommand{\algNtables}{\StrLeft{MOSD}{\ntables}}
+\providecommand{\algMtables}{\StrLeft{SCDAS}{\ntables}}
+\providecommand{\algLtables}{\StrLeft{EMyOC}{\ntables}}
+\providecommand{\algKtables}{\StrLeft{AENSGAII}{\ntables}}
+\providecommand{\algJtables}{\StrLeft{CSEMT}{\ntables}}
+\providecommand{\algItables}{\StrLeft{CGLP}{\ntables}}
+\providecommand{\algHtables}{\StrLeft{AGEMOEA}{\ntables}}
+\providecommand{\algGtables}{\StrLeft{MOEADDE}{\ntables}}
+\providecommand{\algFtables}{\StrLeft{FRCGM}{\ntables}}
+\providecommand{\algEtables}{\StrLeft{NSGAIII}{\ntables}}
+\providecommand{\algDtables}{\StrLeft{KnEA}{\ntables}}
+\providecommand{\algCtables}{\StrLeft{MOPSOCD}{\ntables}}
+\providecommand{\algBtables}{\StrLeft{CCMO}{\ntables}}
+\providecommand{\algAtables}{\StrLeft{tDEACPBI}{\ntables}}
+\providecommand{\ntables}{4}
+\providecommand{\pptablesfooter}{
+\end{tabularx}
+}
+\providecommand{\pptablesheader}{
+\begin{tabularx}{1.0\textwidth}{@{}c@{}|*{4}{@{}r@{}X@{}}|@{}r@{}@{}l@{}}
+$\Df$ & \multicolumn{2}{@{\,}l@{\,}}{1e0} & \multicolumn{2}{@{\,}l@{\,}}{1e-1} & \multicolumn{2}{@{\,}l@{\,}}{1e-2} & \multicolumn{2}{@{\,}l@{\,}}{1e-3} & \multicolumn{2}{|@{}l@{}}{\begin{rotate}{30}\#succ\end{rotate}}\\\hline
+}
+\providecommand{\ntables}{4}
+\providecommand{\pptablesfooter}{
+\end{tabularx}
+}
+\providecommand{\pptablesheader}{
+\begin{tabularx}{1.0\textwidth}{@{}c@{}|*{4}{@{}r@{}X@{}}|@{}r@{}@{}l@{}}
+$\Df$ & \multicolumn{2}{@{\,}l@{\,}}{1e0} & \multicolumn{2}{@{\,}l@{\,}}{1e-1} & \multicolumn{2}{@{\,}l@{\,}}{1e-2} & \multicolumn{2}{@{\,}l@{\,}}{1e-3} & \multicolumn{2}{|@{}l@{}}{\begin{rotate}{30}\#succ\end{rotate}}\\\hline
+}
+\providecommand{\ntables}{4}
+\providecommand{\bbobpptablesmanylegend}[1]{%
+        Expected runtime (\ERT) to reach given targets, measured
+        in number of $f$-evaluations, in #1. For each function, the \ERT\ 
+        and, in braces as dispersion measure, the half difference between 10 and 
+        90\%-tile of  runtimes is shown for the different
+        target \DI-values as shown in the top row. 
+        \#succ is the number of trials that reached the last target
+        $\hvref + 10^{-5}$.
+        %
+        The median number of conducted function evaluations is additionally given in 
+        \textit{italics}, if the target in the last column was never reached.
+        The best entry is marked by a star when the largest $p$-value of pairwise
+        rank-sum tests with the other algorithms either obeys $0.01 < p \le 0.05$
+        or $10^{-k-1} < p \le 10^{-k}$ when the star is followed by the number $k$,
+        with Bonferroni correction by the number of functions (92).  Best results are printed in bold.
+        }
+\providecommand{\bbobecdfcaptionsinglefunctionssingledim}[1]{
+Empirical cumulative distribution of 
+             runtimes, measured in number of $f$-evaluations,
+             divided by dimension (FEvals/DIM) for the $58$ 
+             targets $\{-10^{-4}, -10^{-4.2}, $ $-10^{-4.4}, -10^{-4.6}, -10^{-4.8}, -10^{-5}, 0, 10^{-5}, 10^{-4.9}, 10^{-4.8}, \dots, 10^{-0.1}, 10^0\}$ in dimension #1.
+}
+\providecommand{\cocoversion}{{\scriptsize\sffamily{}\color{Gray}Data produced with COCO v2.8.2, hv-hash=ff0e71e8cd978373}}
+\providecommand{\numofalgs}{20}
+\providecommand{\bbobECDFslegend}[1]{
+Bootstrapped empirical cumulative distribution of the number of $f$-evaluations divided by dimension (FEvals/DIM) for $58$ targets with target precision in $\{-10^{-4}, -10^{-4.2}, $ $-10^{-4.4}, -10^{-4.6}, -10^{-4.8}, -10^{-5}, 0, 10^{-5}, 10^{-4.9}, 10^{-4.8}, \dots, 10^{-0.1}, 10^0\}$ for all functions and subgroups in #1-D. 
+}
+\providecommand{\bbobppfigslegend}[1]{
+Expected running time (\ERT\ in number of $f$-evaluations
+                    as $\log_{10}$ value), divided by dimension for target function value $10^{-5}$
+                    versus dimension. Slanted grid lines indicate quadratic scaling with the dimension. Different symbols correspond to different algorithms given in the legend of #1. Light symbols give the maximum number of evaluations from the longest trial divided by dimension. Black stars (if present) indicate a better result compared to all other algorithms with $p<0.01$ and Bonferroni correction number of dimensions (six).  
+Legend: 
+{\color{CornflowerBlue}$\circ$}: \algorithmA
+, {{}$\diamondsuit$}: \algorithmB
+, {\color{Green}$\star$}: \algorithmC
+, {\color{red}+}: \algorithmD
+, {\color{brown}$\triangledown$}: \algorithmE
+, {{}x}: \algorithmF
+, {{}$\triangle$}: \algorithmG
+, {{}$\Diamond$}: \algorithmH
+, {{}$\triangleleft$}: \algorithmI
+, {{}$\triangleright$}: \algorithmJ
+, {{}$\pentagon$}: \algorithmK
+, {{}$\diamondsuit$}: \algorithmL
+, {{}$\star$}: \algorithmM
+, {{}+}: \algorithmN
+, {{}$\circ$}: \algorithmO
+, {{}$\triangledown$}: \algorithmP
+, {{}x}: \algorithmQ
+, {{}$\triangle$}: \algorithmR
+, {{}$\Diamond$}: \algorithmS
+, {{}$\triangleleft$}: \algorithmT
+}
+% define some COCO/dvipsnames colors because
+% ACM style does not allow to use them directly
+\definecolor{NavyBlue}{HTML}{000080}
+\definecolor{Magenta}{HTML}{FF00FF}
+\definecolor{Orange}{HTML}{FFA500}
+\definecolor{CornflowerBlue}{HTML}{6495ED}
+\definecolor{YellowGreen}{HTML}{9ACD32}
+\definecolor{Gray}{HTML}{BEBEBE}
+\definecolor{Yellow}{HTML}{FFFF00}
+\definecolor{GreenYellow}{HTML}{ADFF2F}
+\definecolor{ForestGreen}{HTML}{228B22}
+\definecolor{Lavender}{HTML}{FFC0CB}
+\definecolor{SkyBlue}{HTML}{87CEEB}
+\definecolor{NavyBlue}{HTML}{000080}
+\definecolor{Goldenrod}{HTML}{DDF700}
+\definecolor{VioletRed}{HTML}{D02090}
+\definecolor{CornflowerBlue}{HTML}{6495ED}
+\definecolor{LimeGreen}{HTML}{32CD32}
+
+\providecommand{\algsfolder}{biobj-ext_MOEAD_eMOEA_BCEIB_MOEAD_MaOEA_CMOEA_MCCMO_et_al_041002h1715/}
+\providecommand{\algsfolder}{biobj-ext_CMOEM_IDBEA_CMOPS_CAEAD_RPDNS_TSTI_rNSGA_et_al_041002h1655/}
+\providecommand{\pptablesfooter}{
+\end{tabularx}
+}
+\providecommand{\pptablesheader}{
+\begin{tabularx}{1.0\textwidth}{@{}c@{}|*{4}{@{}r@{}X@{}}|@{}r@{}@{}l@{}}
+$\Df$ & \multicolumn{2}{@{\,}l@{\,}}{1e0} & \multicolumn{2}{@{\,}l@{\,}}{1e-1} & \multicolumn{2}{@{\,}l@{\,}}{1e-2} & \multicolumn{2}{@{\,}l@{\,}}{1e-3} & \multicolumn{2}{|@{}l@{}}{\begin{rotate}{30}\#succ\end{rotate}}\\\hline
+}
+\providecommand{\ntables}{4}
+\providecommand{\pptablesfooter}{
+\end{tabularx}
+}
+\providecommand{\pptablesheader}{
+\begin{tabularx}{1.0\textwidth}{@{}c@{}|*{4}{@{}r@{}X@{}}|@{}r@{}@{}l@{}}
+$\Df$ & \multicolumn{2}{@{\,}l@{\,}}{1e0} & \multicolumn{2}{@{\,}l@{\,}}{1e-1} & \multicolumn{2}{@{\,}l@{\,}}{1e-2} & \multicolumn{2}{@{\,}l@{\,}}{1e-3} & \multicolumn{2}{|@{}l@{}}{\begin{rotate}{30}\#succ\end{rotate}}\\\hline
+}
+\providecommand{\ntables}{4}
+\providecommand{\pptablesfooter}{
+\end{tabularx}
+}
+\providecommand{\pptablesheader}{
+\begin{tabularx}{1.0\textwidth}{@{}c@{}|*{4}{@{}r@{}X@{}}|@{}r@{}@{}l@{}}
+$\Df$ & \multicolumn{2}{@{\,}l@{\,}}{1e0} & \multicolumn{2}{@{\,}l@{\,}}{1e-1} & \multicolumn{2}{@{\,}l@{\,}}{1e-2} & \multicolumn{2}{@{\,}l@{\,}}{1e-3} & \multicolumn{2}{|@{}l@{}}{\begin{rotate}{30}\#succ\end{rotate}}\\\hline
+}
+\providecommand{\ntables}{4}
+\providecommand{\pptablesfooter}{
+\end{tabularx}
+}
+\providecommand{\pptablesheader}{
+\begin{tabularx}{1.0\textwidth}{@{}c@{}|*{4}{@{}r@{}X@{}}|@{}r@{}@{}l@{}}
+$\Df$ & \multicolumn{2}{@{\,}l@{\,}}{1e0} & \multicolumn{2}{@{\,}l@{\,}}{1e-1} & \multicolumn{2}{@{\,}l@{\,}}{1e-2} & \multicolumn{2}{@{\,}l@{\,}}{1e-3} & \multicolumn{2}{|@{}l@{}}{\begin{rotate}{30}\#succ\end{rotate}}\\\hline
+}
+\providecommand{\algTtables}{\StrLeft{DMOEAeC}{\ntables}}
+\providecommand{\algStables}{\StrLeft{NSLS}{\ntables}}
+\providecommand{\algRtables}{\StrLeft{LSMOF}{\ntables}}
+\providecommand{\algQtables}{\StrLeft{CMMO}{\ntables}}
+\providecommand{\algPtables}{\StrLeft{LMOEADS}{\ntables}}
+\providecommand{\algOtables}{\StrLeft{MOEADMRDL}{\ntables}}
+\providecommand{\algNtables}{\StrLeft{dMOPSO}{\ntables}}
+\providecommand{\algMtables}{\StrLeft{MaOEACSS}{\ntables}}
+\providecommand{\algLtables}{\StrLeft{ARMOEA}{\ntables}}
+\providecommand{\algKtables}{\StrLeft{GPSOM}{\ntables}}
+\providecommand{\algJtables}{\StrLeft{SPEA2SDE}{\ntables}}
+\providecommand{\algItables}{\StrLeft{PESAII}{\ntables}}
+\providecommand{\algHtables}{\StrLeft{AdaW}{\ntables}}
+\providecommand{\algGtables}{\StrLeft{WVMOEAP}{\ntables}}
+\providecommand{\algFtables}{\StrLeft{MOEADFRRMAB}{\ntables}}
+\providecommand{\algEtables}{\StrLeft{GWASFGA}{\ntables}}
+\providecommand{\algDtables}{\StrLeft{MSOPSII}{\ntables}}
+\providecommand{\algCtables}{\StrLeft{CMME}{\ntables}}
+\providecommand{\algBtables}{\StrLeft{SPEAR}{\ntables}}
+\providecommand{\algAtables}{\StrLeft{DEAGNG}{\ntables}}
+\providecommand{\ntables}{4}
+\providecommand{\pptablesfooter}{
+\end{tabularx}
+}
+\providecommand{\pptablesheader}{
+\begin{tabularx}{1.0\textwidth}{@{}c@{}|*{4}{@{}r@{}X@{}}|@{}r@{}@{}l@{}}
+$\Df$ & \multicolumn{2}{@{\,}l@{\,}}{1e0} & \multicolumn{2}{@{\,}l@{\,}}{1e-1} & \multicolumn{2}{@{\,}l@{\,}}{1e-2} & \multicolumn{2}{@{\,}l@{\,}}{1e-3} & \multicolumn{2}{|@{}l@{}}{\begin{rotate}{30}\#succ\end{rotate}}\\\hline
+}
+\providecommand{\ntables}{4}
+\providecommand{\pptablesfooter}{
+\end{tabularx}
+}
+\providecommand{\pptablesheader}{
+\begin{tabularx}{1.0\textwidth}{@{}c@{}|*{4}{@{}r@{}X@{}}|@{}r@{}@{}l@{}}
+$\Df$ & \multicolumn{2}{@{\,}l@{\,}}{1e0} & \multicolumn{2}{@{\,}l@{\,}}{1e-1} & \multicolumn{2}{@{\,}l@{\,}}{1e-2} & \multicolumn{2}{@{\,}l@{\,}}{1e-3} & \multicolumn{2}{|@{}l@{}}{\begin{rotate}{30}\#succ\end{rotate}}\\\hline
+}
+\providecommand{\ntables}{4}
+\providecommand{\bbobpptablesmanylegend}[1]{%
+        Expected runtime (\ERT) to reach given targets, measured
+        in number of $f$-evaluations, in #1. For each function, the \ERT\ 
+        and, in braces as dispersion measure, the half difference between 10 and 
+        90\%-tile of  runtimes is shown for the different
+        target \DI-values as shown in the top row. 
+        \#succ is the number of trials that reached the last target
+        $\hvref + 10^{-5}$.
+        %
+        The median number of conducted function evaluations is additionally given in 
+        \textit{italics}, if the target in the last column was never reached.
+        The best entry is marked by a star when the largest $p$-value of pairwise
+        rank-sum tests with the other algorithms either obeys $0.01 < p \le 0.05$
+        or $10^{-k-1} < p \le 10^{-k}$ when the star is followed by the number $k$,
+        with Bonferroni correction by the number of functions (92).  Best results are printed in bold.
+        }
+\providecommand{\algsfolder}{biobj-ext_GDE3_SMSEM_NSGAI_AGEMO_ANSGA_DAEA_CMEGL_et_al_041002h1608/}
+\providecommand{\algsfolder}{biobj-ext_tDEAC_CCMO_MOPSO_KnEA_NSGAI_FRCGM_MOEAD_et_al_041002h1109/}
+\providecommand{\algsfolder}{biobj-ext_DEAGN_SPEAR_CMME_MSOPS_GWASF_MOEAD_WVMOE_et_al_041002h0844/}
+\providecommand{\bbobecdfcaptionsinglefunctionssingledim}[1]{
+Empirical cumulative distribution of 
+             runtimes, measured in number of $f$-evaluations,
+             divided by dimension (FEvals/DIM) for the $58$ 
+             targets $\{-10^{-4}, -10^{-4.2}, $ $-10^{-4.4}, -10^{-4.6}, -10^{-4.8}, -10^{-5}, 0, 10^{-5}, 10^{-4.9}, 10^{-4.8}, \dots, 10^{-0.1}, 10^0\}$ in dimension #1.
+}
+\providecommand{\cocoversion}{{\scriptsize\sffamily{}\color{Gray}Data produced with COCO v2.8.2, hv-hash=ff0e71e8cd978373}}
+\providecommand{\numofalgs}{9}
+\providecommand{\bbobECDFslegend}[1]{
+Bootstrapped empirical cumulative distribution of the number of $f$-evaluations divided by dimension (FEvals/DIM) for $58$ targets with target precision in $\{-10^{-4}, -10^{-4.2}, $ $-10^{-4.4}, -10^{-4.6}, -10^{-4.8}, -10^{-5}, 0, 10^{-5}, 10^{-4.9}, 10^{-4.8}, \dots, 10^{-0.1}, 10^0\}$ for all functions and subgroups in #1-D. 
+}
+\providecommand{\bbobppfigslegend}[1]{
+Expected running time (\ERT\ in number of $f$-evaluations
+                    as $\log_{10}$ value), divided by dimension for target function value $10^{-5}$
+                    versus dimension. Slanted grid lines indicate quadratic scaling with the dimension. Different symbols correspond to different algorithms given in the legend of #1. Light symbols give the maximum number of evaluations from the longest trial divided by dimension. Black stars (if present) indicate a better result compared to all other algorithms with $p<0.01$ and Bonferroni correction number of dimensions (six).  
+Legend: 
+{\color{CornflowerBlue}$\circ$}: \algorithmA
+, {{}$\diamondsuit$}: \algorithmB
+, {\color{Green}$\star$}: \algorithmC
+, {\color{red}+}: \algorithmD
+, {\color{brown}$\triangledown$}: \algorithmE
+, {{}x}: \algorithmF
+, {{}$\triangle$}: \algorithmG
+, {{}$\Diamond$}: \algorithmH
+, {{}$\triangleleft$}: \algorithmI
+}
+% define some COCO/dvipsnames colors because
+% ACM style does not allow to use them directly
+\definecolor{NavyBlue}{HTML}{000080}
+\definecolor{Magenta}{HTML}{FF00FF}
+\definecolor{Orange}{HTML}{FFA500}
+\definecolor{CornflowerBlue}{HTML}{6495ED}
+\definecolor{YellowGreen}{HTML}{9ACD32}
+\definecolor{Gray}{HTML}{BEBEBE}
+\definecolor{Yellow}{HTML}{FFFF00}
+\definecolor{GreenYellow}{HTML}{ADFF2F}
+\definecolor{ForestGreen}{HTML}{228B22}
+\definecolor{Lavender}{HTML}{FFC0CB}
+\definecolor{SkyBlue}{HTML}{87CEEB}
+\definecolor{NavyBlue}{HTML}{000080}
+\definecolor{Goldenrod}{HTML}{DDF700}
+\definecolor{VioletRed}{HTML}{D02090}
+\definecolor{CornflowerBlue}{HTML}{6495ED}
+\definecolor{LimeGreen}{HTML}{32CD32}
+
+\providecommand{\pptablesfooter}{
+\end{tabularx}
+}
+\providecommand{\pptablesheader}{
+\begin{tabularx}{1.0\textwidth}{@{}c@{}|*{4}{@{}r@{}X@{}}|@{}r@{}@{}l@{}}
+$\Df$ & \multicolumn{2}{@{\,}l@{\,}}{1e0} & \multicolumn{2}{@{\,}l@{\,}}{1e-1} & \multicolumn{2}{@{\,}l@{\,}}{1e-2} & \multicolumn{2}{@{\,}l@{\,}}{1e-3} & \multicolumn{2}{|@{}l@{}}{\begin{rotate}{30}\#succ\end{rotate}}\\\hline
+}
+\providecommand{\ntables}{4}
+\providecommand{\pptablesfooter}{
+\end{tabularx}
+}
+\providecommand{\pptablesheader}{
+\begin{tabularx}{1.0\textwidth}{@{}c@{}|*{4}{@{}r@{}X@{}}|@{}r@{}@{}l@{}}
+$\Df$ & \multicolumn{2}{@{\,}l@{\,}}{1e0} & \multicolumn{2}{@{\,}l@{\,}}{1e-1} & \multicolumn{2}{@{\,}l@{\,}}{1e-2} & \multicolumn{2}{@{\,}l@{\,}}{1e-3} & \multicolumn{2}{|@{}l@{}}{\begin{rotate}{30}\#succ\end{rotate}}\\\hline
+}
+\providecommand{\ntables}{4}
+\providecommand{\pptablesfooter}{
+\end{tabularx}
+}
+\providecommand{\pptablesheader}{
+\begin{tabularx}{1.0\textwidth}{@{}c@{}|*{4}{@{}r@{}X@{}}|@{}r@{}@{}l@{}}
+$\Df$ & \multicolumn{2}{@{\,}l@{\,}}{1e0} & \multicolumn{2}{@{\,}l@{\,}}{1e-1} & \multicolumn{2}{@{\,}l@{\,}}{1e-2} & \multicolumn{2}{@{\,}l@{\,}}{1e-3} & \multicolumn{2}{|@{}l@{}}{\begin{rotate}{30}\#succ\end{rotate}}\\\hline
+}
+\providecommand{\ntables}{4}
+\providecommand{\pptablesfooter}{
+\end{tabularx}
+}
+\providecommand{\pptablesheader}{
+\begin{tabularx}{1.0\textwidth}{@{}c@{}|*{4}{@{}r@{}X@{}}|@{}r@{}@{}l@{}}
+$\Df$ & \multicolumn{2}{@{\,}l@{\,}}{1e0} & \multicolumn{2}{@{\,}l@{\,}}{1e-1} & \multicolumn{2}{@{\,}l@{\,}}{1e-2} & \multicolumn{2}{@{\,}l@{\,}}{1e-3} & \multicolumn{2}{|@{}l@{}}{\begin{rotate}{30}\#succ\end{rotate}}\\\hline
+}
+\providecommand{\algItables}{\StrLeft{CAMOEA}{\ntables}}
+\providecommand{\algHtables}{\StrLeft{CMaDPPs}{\ntables}}
+\providecommand{\algGtables}{\StrLeft{EMCMO}{\ntables}}
+\providecommand{\algFtables}{\StrLeft{ToP}{\ntables}}
+\providecommand{\algEtables}{\StrLeft{NSBiDiCo}{\ntables}}
+\providecommand{\algDtables}{\StrLeft{RPEA}{\ntables}}
+\providecommand{\algCtables}{\StrLeft{MOPSO}{\ntables}}
+\providecommand{\algBtables}{\StrLeft{KLNSGAII}{\ntables}}
+\providecommand{\algAtables}{\StrLeft{MOEADAWA}{\ntables}}
+\providecommand{\ntables}{4}
+\providecommand{\pptablesfooter}{
+\end{tabularx}
+}
+\providecommand{\pptablesheader}{
+\begin{tabularx}{1.0\textwidth}{@{}c@{}|*{4}{@{}r@{}X@{}}|@{}r@{}@{}l@{}}
+$\Df$ & \multicolumn{2}{@{\,}l@{\,}}{1e0} & \multicolumn{2}{@{\,}l@{\,}}{1e-1} & \multicolumn{2}{@{\,}l@{\,}}{1e-2} & \multicolumn{2}{@{\,}l@{\,}}{1e-3} & \multicolumn{2}{|@{}l@{}}{\begin{rotate}{30}\#succ\end{rotate}}\\\hline
+}
+\providecommand{\ntables}{4}
+\providecommand{\pptablesfooter}{
+\end{tabularx}
+}
+\providecommand{\pptablesheader}{
+\begin{tabularx}{1.0\textwidth}{@{}c@{}|*{4}{@{}r@{}X@{}}|@{}r@{}@{}l@{}}
+$\Df$ & \multicolumn{2}{@{\,}l@{\,}}{1e0} & \multicolumn{2}{@{\,}l@{\,}}{1e-1} & \multicolumn{2}{@{\,}l@{\,}}{1e-2} & \multicolumn{2}{@{\,}l@{\,}}{1e-3} & \multicolumn{2}{|@{}l@{}}{\begin{rotate}{30}\#succ\end{rotate}}\\\hline
+}
+\providecommand{\ntables}{4}
+\providecommand{\bbobpptablesmanylegend}[1]{%
+        Expected runtime (\ERT) to reach given targets, measured
+        in number of $f$-evaluations, in #1. For each function, the \ERT\ 
+        and, in braces as dispersion measure, the half difference between 10 and 
+        90\%-tile of  runtimes is shown for the different
+        target \DI-values as shown in the top row. 
+        \#succ is the number of trials that reached the last target
+        $\hvref + 10^{-5}$.
+        %
+        The median number of conducted function evaluations is additionally given in 
+        \textit{italics}, if the target in the last column was never reached.
+        The best entry is marked by a star when the largest $p$-value of pairwise
+        rank-sum tests with the other algorithms either obeys $0.01 < p \le 0.05$
+        or $10^{-k-1} < p \le 10^{-k}$ when the star is followed by the number $k$,
+        with Bonferroni correction by the number of functions (92).  Best results are printed in bold.
+        }
+\providecommand{\algsfolder}{biobj-ext_MOEAD_KLNSG_MOPSO_RPEA_NSBiD_ToP_EMCMO_et_al_040918h5616/}
+\providecommand{\algorithmA}{AENSGAII}
+\providecommand{\algorithmB}{AGEMOEA}
+\providecommand{\algorithmC}{CCMO}
+\providecommand{\algorithmD}{CGLP}
+\providecommand{\algorithmE}{CPSMOEA}
+\providecommand{\algorithmF}{CSEMT}
+\providecommand{\algorithmG}{EMyOC}
+\providecommand{\algorithmH}{FRCGM}
+\providecommand{\algorithmI}{KnEA}
+\providecommand{\algorithmJ}{LCSA}
+\providecommand{\algorithmK}{MOEADDCWV}
+\providecommand{\algorithmL}{MOEADDE}
+\providecommand{\algorithmM}{MOPSOCD}
+\providecommand{\algorithmN}{MOSD}
+\providecommand{\algorithmO}{NSGAII}
+\providecommand{\algorithmP}{NSGAIII}
+\providecommand{\algorithmQ}{SCDAS}
+\providecommand{\algorithmR}{SMPSO}
+\providecommand{\algorithmS}{Two Arch2}
+\providecommand{\algorithmT}{tDEACPBI}
+\providecommand{\algorithmA}{AGEMOEAII}
+\providecommand{\algorithmB}{ANSGAIII}
+\providecommand{\algorithmC}{CLIA}
+\providecommand{\algorithmD}{CMEGL}
+\providecommand{\algorithmE}{CTSEA}
+\providecommand{\algorithmF}{DAEA}
+\providecommand{\algorithmG}{GDE3}
+\providecommand{\algorithmH}{GLMO}
+\providecommand{\algorithmI}{LERD}
+\providecommand{\algorithmJ}{LMEA}
+\providecommand{\algorithmK}{MOEADDRA}
+\providecommand{\algorithmL}{MOEADDU}
+\providecommand{\algorithmM}{MSCMO}
+\providecommand{\algorithmN}{MSEA}
+\providecommand{\algorithmO}{NSGAIISDR}
+\providecommand{\algorithmP}{NSGAIIconflict}
+\providecommand{\algorithmQ}{SMSEMOA}
+\providecommand{\algorithmR}{SPEA2}
+\providecommand{\algorithmS}{VaEA}
+\providecommand{\algorithmT}{WASFGA}
+\providecommand{\algorithmA}{AGEMOEAII}
+\providecommand{\algorithmB}{ANSGAIII}
+\providecommand{\algorithmC}{CLIA}
