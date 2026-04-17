@@ -523,41 +523,19 @@
   <div class="card">
     <div class="card-header">
       <span class="card-icon">&#128214;</span>
-      <h2>Jupyter Notebooks</h2>
+      <h2>COCOpp Data Retrieve</h2>
     </div>
     <div class="card-body">
-      <div class="notebook-grid">
+      <div class="notebook-grid" style="grid-template-columns: 1fr;">
 
         <div class="notebook-card">
-          <h3><span>&#128202;</span> Analysis Placeholder <span class="notebook-tag">.ipynb</span></h3>
-          <p>Placeholder notebook &mdash; basic utility functions for future analysis.</p>
+          <h3><span>&#128202;</span> get_archive_data <span class="notebook-tag">.py</span></h3>
+          <p>Download and inspect the archived experiment data via the COCOpp archiving interface.</p>
           <div class="code-preview">
-<span class="kw">def</span> <span class="fn">add</span>(a, b):
-    <span class="cm"># placeholder: returns sum of a and b</span>
-    <span class="kw">return</span> a + b
+<span class="kw">import</span> cocopp <br><br>
 
-result = <span class="fn">add</span>(<span class="num">3</span>, <span class="num">5</span>)
-<span class="fn">print</span>(<span class="st">f"3 + 5 = {result}"</span>)
-          </div>
-        </div>
-
-        <div class="notebook-card">
-          <h3><span>&#128200;</span> ERT Comparison <span class="notebook-tag">.ipynb</span></h3>
-          <p>Expected running time analysis across local and background targets.</p>
-          <div class="code-preview">
-<span class="cm"># TODO: load COCO data</span>
-<span class="cm"># TODO: plot ERT profiles</span>
-<span class="kw">pass</span>
-          </div>
-        </div>
-
-        <div class="notebook-card">
-          <h3><span>&#127919;</span> Hypervolume Plots <span class="notebook-tag">.ipynb</span></h3>
-          <p>Hypervolume indicator trajectories over function evaluations.</p>
-          <div class="code-preview">
-<span class="cm"># TODO: compute HV indicator</span>
-<span class="cm"># TODO: generate figures</span>
-<span class="kw">pass</span>
+qarch = cocopp.archiving.<span class="fn">get</span>(<span class="st">'https://steigner.github.io/PlatEMO-Data-Driven-Characterization-Multiobjective-Optimization-Algorithms/archive_data/'</span>)
+<br><br> <span class="fn">print</span>(qarch) <br>
           </div>
         </div>
 
