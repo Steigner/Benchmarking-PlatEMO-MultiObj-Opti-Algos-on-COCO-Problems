@@ -182,7 +182,8 @@
       color: var(--text);
       transition: border-color 0.15s, color 0.15s;
     }
-    .pill:hover { border-color: var(--accent); color: var(--accent); cursor: default; }
+    .pill:hover { border-color: var(--accent); color: var(--accent); cursor: pointer; }
+    a.pill { text-decoration: none; }
     .pill-top {
       background: var(--gold-bg);
       color: var(--gold-fg);
@@ -321,6 +322,7 @@
       <h2>Results &amp; Reports</h2>
     </div>
     <div class="card-body" style="padding: 0 20px;">
+      <p style="font-size:0.87rem; color:var(--muted); padding: 14px 4px 10px;">You can interactively explore COCO post-processing results for all 129 tested PlatEMO algorithms to compare their performance.</p>
       <ul class="nav-links">
         <li>
           <a href="ppdata_best_129/index.html">
@@ -368,6 +370,7 @@
       <h2>Algorithm Portfolio</h2>
     </div>
     <div class="card-body">
+      <p style="font-size:0.87rem; color:var(--muted); margin-bottom:16px;">Click the name of an algorithm to download its experimental data.</p>
 
       <div class="algo-section">
         <div class="algo-label">
@@ -375,9 +378,9 @@
           Winners
         </div>
         <div class="pill-list">
-          <span class="pill pill-top">RMMEDA</span>
-          <span class="pill pill-top">MOCMA</span>
-          <span class="pill pill-top">DRLOSEMCMO</span>
+          <a class="pill pill-top" href="archive_data/RMMEDA.zip" download>RMMEDA</a>
+          <a class="pill pill-top" href="archive_data/MOCMA.zip" download>MOCMA</a>
+          <a class="pill pill-top" href="archive_data/DRLOSEMCMO.zip" download>DRLOSEMCMO</a>
         </div>
       </div>
 
@@ -387,132 +390,132 @@
           Compatetive Algorithms
         </div>
         <div class="pill-list">
-          <span class="pill">AENSGAII</span>
-          <span class="pill">CCMO</span>
-          <span class="pill">CPSMOEA</span>
-          <span class="pill">EMyOC</span>
-          <span class="pill">KnEA</span>
-          <span class="pill">MOEADDCWV</span>
-          <span class="pill">MOPSOCD</span>
-          <span class="pill">NSGAII</span>
-          <span class="pill">SCDAS</span>
-          <span class="pill">tDEACPBI</span>
-          <span class="pill">AGEMOEA</span>
-          <span class="pill">CSEMT</span>
-          <span class="pill">FRCGM</span>
-          <span class="pill">LCSA</span>
-          <span class="pill">MOEADDE</span>
-          <span class="pill">MOSD</span>
-          <span class="pill">NSGAIII</span>
-          <span class="pill">Two_Arch2</span>
-          <span class="pill">AGEMOEAII</span>
-          <span class="pill">CLIA</span>
-          <span class="pill">CTSEA</span>
-          <span class="pill">GDE3</span>
-          <span class="pill">LERD</span>
-          <span class="pill">MOEADDRA</span>
-          <span class="pill">MSCMO</span>
-          <span class="pill">NSGAIISDR</span>
-          <span class="pill">SMSEMOA</span>
-          <span class="pill">VaEA</span>
-          <span class="pill">ANSGAIII</span>
-          <span class="pill">CMEGL</span>
-          <span class="pill">DAEA</span>
-          <span class="pill">GLMO</span>
-          <span class="pill">LMEA</span>
-          <span class="pill">MOEADDU</span>
-          <span class="pill">MSEA</span>
-          <span class="pill">NSGAIIconflict</span>
-          <span class="pill">SPEA2</span>
-          <span class="pill">WASFGA</span>
-          <span class="pill">ARMOEA</span>
-          <span class="pill">CMME</span>
-          <span class="pill">DEAGNG</span>
-          <span class="pill">GPSOM</span>
-          <span class="pill">LMOEADS</span>
-          <span class="pill">MOEADFRRMAB</span>
-          <span class="pill">MSOPSII</span>
-          <span class="pill">NSLS</span>
-          <span class="pill">SPEA2SDE</span>
-          <span class="pill">WVMOEAP</span>
-          <span class="pill">AdaW</span>
-          <span class="pill">CMMO</span>
-          <span class="pill">DMOEAeC</span>
-          <span class="pill">GWASFGA</span>
-          <span class="pill">LSMOF</span>
-          <span class="pill">MOEADMRDL</span>
-          <span class="pill">MaOEACSS</span>
-          <span class="pill">PESAII</span>
-          <span class="pill">SPEAR</span>
-          <span class="pill">dMOPSO</span>
-          <span class="pill">BCEIBEA</span>
-          <span class="pill">CMOEACD</span>
-          <span class="pill">DNNSGAII</span>
-          <span class="pill">GrEA</span>
-          <span class="pill">MCCMO</span>
-          <span class="pill">MOEADPaS</span>
-          <span class="pill">MaOEADDFC</span>
-          <span class="pill">PICEAg</span>
-          <span class="pill">SRA</span>
-          <span class="pill">eMOEA</span>
-          <span class="pill">BCEMOEAD</span>
-          <span class="pill">CMOEAD</span>
-          <span class="pill">DNSGAII</span>
-          <span class="pill">HEA</span>
-          <span class="pill">MMOPSO</span>
-          <span class="pill">MOEADSTM</span>
-          <span class="pill">MaOEAIGD</span>
-          <span class="pill">PPS</span>
-          <span class="pill">SVRNSGAII</span>
-          <span class="pill">gNSGAII</span>
-          <span class="pill">BiCo</span>
-          <span class="pill">CMOEAMS</span>
-          <span class="pill">DPCPRA</span>
-          <span class="pill">IBEA</span>
-          <span class="pill">MOBCA</span>
-          <span class="pill">MOEADURAW</span>
-          <span class="pill">MaOEAIT</span>
-          <span class="pill">PREA</span>
-          <span class="pill">TPCMaO</span>
-          <span class="pill">hpaEA</span>
-          <span class="pill">BiGE</span>
-          <span class="pill">CMOEAMSG</span>
-          <span class="pill">MOEAIGDNS</span>
-          <span class="pill">MyODEMR</span>
-          <span class="pill">PeEA</span>
-          <span class="pill">TSNSGAII</span>
-          <span class="pill">onebyoneEA</span>
-          <span class="pill">CMOEMT</span>
-          <span class="pill">EAGMOEAD</span>
-          <span class="pill">IDBEA</span>
-          <span class="pill">MOCell</span>
-          <span class="pill">MOEAPC</span>
-          <span class="pill">NMPSO</span>
-          <span class="pill">TSTI</span>
-          <span class="pill">rNSGAII</span>
-          <span class="pill">CAEAD</span>
-          <span class="pill">EFRRR</span>
-          <span class="pill">IMCMOEAD</span>
-          <span class="pill">MOEAD</span>
-          <span class="pill">MOMBIII</span>
-          <span class="pill">NRVMOEA</span>
-          <span class="pill">RPDNSGAII</span>
-          <span class="pill">TiGE2</span>
-          <span class="pill">tDEA</span>
-          <span class="pill">CAMOEA</span>
-          <span class="pill">CMaDPPs</span>
-          <span class="pill">EMCMO</span>
-          <span class="pill">KLNSGAII</span>
-          <span class="pill">MOEADAWA</span>
-          <span class="pill">MOPSO</span>
-          <span class="pill">NSBiDiCo</span>
-          <span class="pill">RPEA</span>
-          <span class="pill">ToP</span>
-          <span class="pill">C3M</span>
-          <span class="pill">CGLP</span>
-          <span class="pill">SMPSO</span>
-          <span class="pill">CMOPSO</span>
-          <span class="pill">ICMA</span>
+          <a class="pill" href="archive_data/AENSGAII.zip" download>AENSGAII</a>
+          <a class="pill" href="archive_data/CCMO.zip" download>CCMO</a>
+          <a class="pill" href="archive_data/CPSMOEA.zip" download>CPSMOEA</a>
+          <a class="pill" href="archive_data/EMyOC.zip" download>EMyOC</a>
+          <a class="pill" href="archive_data/KnEA.zip" download>KnEA</a>
+          <a class="pill" href="archive_data/MOEADDCWV.zip" download>MOEADDCWV</a>
+          <a class="pill" href="archive_data/MOPSOCD.zip" download>MOPSOCD</a>
+          <a class="pill" href="archive_data/NSGAII.zip" download>NSGAII</a>
+          <a class="pill" href="archive_data/SCDAS.zip" download>SCDAS</a>
+          <a class="pill" href="archive_data/tDEACPBI.zip" download>tDEACPBI</a>
+          <a class="pill" href="archive_data/AGEMOEA.zip" download>AGEMOEA</a>
+          <a class="pill" href="archive_data/CSEMT.zip" download>CSEMT</a>
+          <a class="pill" href="archive_data/FRCGM.zip" download>FRCGM</a>
+          <a class="pill" href="archive_data/LCSA.zip" download>LCSA</a>
+          <a class="pill" href="archive_data/MOEADDE.zip" download>MOEADDE</a>
+          <a class="pill" href="archive_data/MOSD.zip" download>MOSD</a>
+          <a class="pill" href="archive_data/NSGAIII.zip" download>NSGAIII</a>
+          <a class="pill" href="archive_data/Two_Arch2.zip" download>Two_Arch2</a>
+          <a class="pill" href="archive_data/AGEMOEAII.zip" download>AGEMOEAII</a>
+          <a class="pill" href="archive_data/CLIA.zip" download>CLIA</a>
+          <a class="pill" href="archive_data/CTSEA.zip" download>CTSEA</a>
+          <a class="pill" href="archive_data/GDE3.zip" download>GDE3</a>
+          <a class="pill" href="archive_data/LERD.zip" download>LERD</a>
+          <a class="pill" href="archive_data/MOEADDRA.zip" download>MOEADDRA</a>
+          <a class="pill" href="archive_data/MSCMO.zip" download>MSCMO</a>
+          <a class="pill" href="archive_data/NSGAIISDR.zip" download>NSGAIISDR</a>
+          <a class="pill" href="archive_data/SMSEMOA.zip" download>SMSEMOA</a>
+          <a class="pill" href="archive_data/VaEA.zip" download>VaEA</a>
+          <a class="pill" href="archive_data/ANSGAIII.zip" download>ANSGAIII</a>
+          <a class="pill" href="archive_data/CMEGL.zip" download>CMEGL</a>
+          <a class="pill" href="archive_data/DAEA.zip" download>DAEA</a>
+          <a class="pill" href="archive_data/GLMO.zip" download>GLMO</a>
+          <a class="pill" href="archive_data/LMEA.zip" download>LMEA</a>
+          <a class="pill" href="archive_data/MOEADDU.zip" download>MOEADDU</a>
+          <a class="pill" href="archive_data/MSEA.zip" download>MSEA</a>
+          <a class="pill" href="archive_data/NSGAIIconflict.zip" download>NSGAIIconflict</a>
+          <a class="pill" href="archive_data/SPEA2.zip" download>SPEA2</a>
+          <a class="pill" href="archive_data/WASFGA.zip" download>WASFGA</a>
+          <a class="pill" href="archive_data/ARMOEA.zip" download>ARMOEA</a>
+          <a class="pill" href="archive_data/CMME.zip" download>CMME</a>
+          <a class="pill" href="archive_data/DEAGNG.zip" download>DEAGNG</a>
+          <a class="pill" href="archive_data/GPSOM.zip" download>GPSOM</a>
+          <a class="pill" href="archive_data/LMOEADS.zip" download>LMOEADS</a>
+          <a class="pill" href="archive_data/MOEADFRRMAB.zip" download>MOEADFRRMAB</a>
+          <a class="pill" href="archive_data/MSOPSII.zip" download>MSOPSII</a>
+          <a class="pill" href="archive_data/NSLS.zip" download>NSLS</a>
+          <a class="pill" href="archive_data/SPEA2SDE.zip" download>SPEA2SDE</a>
+          <a class="pill" href="archive_data/WVMOEAP.zip" download>WVMOEAP</a>
+          <a class="pill" href="archive_data/AdaW.zip" download>AdaW</a>
+          <a class="pill" href="archive_data/CMMO.zip" download>CMMO</a>
+          <a class="pill" href="archive_data/DMOEAeC.zip" download>DMOEAeC</a>
+          <a class="pill" href="archive_data/GWASFGA.zip" download>GWASFGA</a>
+          <a class="pill" href="archive_data/LSMOF.zip" download>LSMOF</a>
+          <a class="pill" href="archive_data/MOEADMRDL.zip" download>MOEADMRDL</a>
+          <a class="pill" href="archive_data/MaOEACSS.zip" download>MaOEACSS</a>
+          <a class="pill" href="archive_data/PESAII.zip" download>PESAII</a>
+          <a class="pill" href="archive_data/SPEAR.zip" download>SPEAR</a>
+          <a class="pill" href="archive_data/dMOPSO.zip" download>dMOPSO</a>
+          <a class="pill" href="archive_data/BCEIBEA.zip" download>BCEIBEA</a>
+          <a class="pill" href="archive_data/CMOEACD.zip" download>CMOEACD</a>
+          <a class="pill" href="archive_data/DNNSGAII.zip" download>DNNSGAII</a>
+          <a class="pill" href="archive_data/GrEA.zip" download>GrEA</a>
+          <a class="pill" href="archive_data/MCCMO.zip" download>MCCMO</a>
+          <a class="pill" href="archive_data/MOEADPaS.zip" download>MOEADPaS</a>
+          <a class="pill" href="archive_data/MaOEADDFC.zip" download>MaOEADDFC</a>
+          <a class="pill" href="archive_data/PICEAg.zip" download>PICEAg</a>
+          <a class="pill" href="archive_data/SRA.zip" download>SRA</a>
+          <a class="pill" href="archive_data/eMOEA.zip" download>eMOEA</a>
+          <a class="pill" href="archive_data/BCEMOEAD.zip" download>BCEMOEAD</a>
+          <a class="pill" href="archive_data/CMOEAD.zip" download>CMOEAD</a>
+          <a class="pill" href="archive_data/DNSGAII.zip" download>DNSGAII</a>
+          <a class="pill" href="archive_data/HEA.zip" download>HEA</a>
+          <a class="pill" href="archive_data/MMOPSO.zip" download>MMOPSO</a>
+          <a class="pill" href="archive_data/MOEADSTM.zip" download>MOEADSTM</a>
+          <a class="pill" href="archive_data/MaOEAIGD.zip" download>MaOEAIGD</a>
+          <a class="pill" href="archive_data/PPS.zip" download>PPS</a>
+          <a class="pill" href="archive_data/SVRNSGAII.zip" download>SVRNSGAII</a>
+          <a class="pill" href="archive_data/gNSGAII.zip" download>gNSGAII</a>
+          <a class="pill" href="archive_data/BiCo.zip" download>BiCo</a>
+          <a class="pill" href="archive_data/CMOEAMS.zip" download>CMOEAMS</a>
+          <a class="pill" href="archive_data/DPCPRA.zip" download>DPCPRA</a>
+          <a class="pill" href="archive_data/IBEA.zip" download>IBEA</a>
+          <a class="pill" href="archive_data/MOBCA.zip" download>MOBCA</a>
+          <a class="pill" href="archive_data/MOEADURAW.zip" download>MOEADURAW</a>
+          <a class="pill" href="archive_data/MaOEAIT.zip" download>MaOEAIT</a>
+          <a class="pill" href="archive_data/PREA.zip" download>PREA</a>
+          <a class="pill" href="archive_data/TPCMaO.zip" download>TPCMaO</a>
+          <a class="pill" href="archive_data/hpaEA.zip" download>hpaEA</a>
+          <a class="pill" href="archive_data/BiGE.zip" download>BiGE</a>
+          <a class="pill" href="archive_data/CMOEAMSG.zip" download>CMOEAMSG</a>
+          <a class="pill" href="archive_data/MOEAIGDNS.zip" download>MOEAIGDNS</a>
+          <a class="pill" href="archive_data/MyODEMR.zip" download>MyODEMR</a>
+          <a class="pill" href="archive_data/PeEA.zip" download>PeEA</a>
+          <a class="pill" href="archive_data/TSNSGAII.zip" download>TSNSGAII</a>
+          <a class="pill" href="archive_data/onebyoneEA.zip" download>onebyoneEA</a>
+          <a class="pill" href="archive_data/CMOEMT.zip" download>CMOEMT</a>
+          <a class="pill" href="archive_data/EAGMOEAD.zip" download>EAGMOEAD</a>
+          <a class="pill" href="archive_data/IDBEA.zip" download>IDBEA</a>
+          <a class="pill" href="archive_data/MOCell.zip" download>MOCell</a>
+          <a class="pill" href="archive_data/MOEAPC.zip" download>MOEAPC</a>
+          <a class="pill" href="archive_data/NMPSO.zip" download>NMPSO</a>
+          <a class="pill" href="archive_data/TSTI.zip" download>TSTI</a>
+          <a class="pill" href="archive_data/rNSGAII.zip" download>rNSGAII</a>
+          <a class="pill" href="archive_data/CAEAD.zip" download>CAEAD</a>
+          <a class="pill" href="archive_data/EFRRR.zip" download>EFRRR</a>
+          <a class="pill" href="archive_data/IMCMOEAD.zip" download>IMCMOEAD</a>
+          <a class="pill" href="archive_data/MOEAD.zip" download>MOEAD</a>
+          <a class="pill" href="archive_data/MOMBIII.zip" download>MOMBIII</a>
+          <a class="pill" href="archive_data/NRVMOEA.zip" download>NRVMOEA</a>
+          <a class="pill" href="archive_data/RPDNSGAII.zip" download>RPDNSGAII</a>
+          <a class="pill" href="archive_data/TiGE2.zip" download>TiGE2</a>
+          <a class="pill" href="archive_data/tDEA.zip" download>tDEA</a>
+          <a class="pill" href="archive_data/CAMOEA.zip" download>CAMOEA</a>
+          <a class="pill" href="archive_data/CMaDPPs.zip" download>CMaDPPs</a>
+          <a class="pill" href="archive_data/EMCMO.zip" download>EMCMO</a>
+          <a class="pill" href="archive_data/KLNSGAII.zip" download>KLNSGAII</a>
+          <a class="pill" href="archive_data/MOEADAWA.zip" download>MOEADAWA</a>
+          <a class="pill" href="archive_data/MOPSO.zip" download>MOPSO</a>
+          <a class="pill" href="archive_data/NSBiDiCo.zip" download>NSBiDiCo</a>
+          <a class="pill" href="archive_data/RPEA.zip" download>RPEA</a>
+          <a class="pill" href="archive_data/ToP.zip" download>ToP</a>
+          <a class="pill" href="archive_data/C3M.zip" download>C3M</a>
+          <a class="pill" href="archive_data/CGLP.zip" download>CGLP</a>
+          <a class="pill" href="archive_data/SMPSO.zip" download>SMPSO</a>
+          <a class="pill" href="archive_data/CMOPSO.zip" download>CMOPSO</a>
+          <a class="pill" href="archive_data/ICMA.zip" download>ICMA</a>
         </div>
       </div>
 
@@ -523,14 +526,14 @@
   <div class="card">
     <div class="card-header">
       <span class="card-icon">&#128214;</span>
-      <h2>COCOpp Data Retrieve</h2>
+      <h2>Reuse the data in your own experiments</h2>
     </div>
     <div class="card-body">
       <div class="notebook-grid" style="grid-template-columns: 1fr;">
 
         <div class="notebook-card">
           <h3><span>&#128202;</span> get_archive_data <span class="notebook-tag">.py</span></h3>
-          <p>Download and inspect the archived experiment data via the COCOpp archiving interface.</p>
+          <p>Download and inspect the archived experiment data via the <code style="font-family:var(--font-mono); font-size:0.9em;">'cocopp'</code> archiving interface.</p>
           <div class="code-preview">
 <span class="kw">import</span> cocopp <br><br>
 
